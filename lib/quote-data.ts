@@ -49,8 +49,8 @@ export const PKG_QUOTES = {
     "scope": "9 services"
   },
   "pkg-essential": {
-    "name": "Essential — Pvt Ltd Registration Package",
-    "price": "₹2,399",
+    "name": "Essential",
+    "price": "₹6,999",
     "per": "",
     "note": "Complete Pvt Ltd incorporation, end-to-end. DSC & government fees at actuals.",
     "scope": "8 deliverables",
@@ -65,8 +65,8 @@ export const PKG_QUOTES = {
     ]
   },
   "pkg-professional": {
-    "name": "Professional — Incorporation + GST + MSME",
-    "price": "₹6,999",
+    "name": "Professional",
+    "price": "₹18,999",
     "per": "",
     "note": "Incorporation plus GST & MSME registration — invoice-ready from day one. DSC & government fees at actuals.",
     "scope": "10 deliverables",
@@ -82,8 +82,8 @@ export const PKG_QUOTES = {
     ]
   },
   "pkg-elite": {
-    "name": "Elite — Incorporation + Year-One MCA Compliance",
-    "price": "₹13,999",
+    "name": "Elite",
+    "price": "₹34,999",
     "per": "",
     "note": "Everything in Professional plus all mandatory first-year MCA filings (INC-20A, ADT-1, AOC-4, MGT-7A, DIR-3 KYC). DSC & government fees at actuals.",
     "scope": "14 deliverables",
