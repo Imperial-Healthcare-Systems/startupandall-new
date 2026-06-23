@@ -88,7 +88,7 @@ export const CALC_LLP_STAMP: Record<string, (c: number) => number> = {
 
 export const CALC_CFG: Record<Entity, { label: string; pro: number; proName: string; minPeople: number; peopleLabel: string; slug: string }> = {
   pvt: { label: "Private Limited", pro: 6999, proName: "Private Limited Company", minPeople: 2, peopleLabel: "Directors", slug: "private-limited-company" },
-  opc: { label: "OPC", pro: 6999, proName: "One Person Company (OPC)", minPeople: 1, peopleLabel: "Director", slug: "one-person-company-opc" },
+  opc: { label: "OPC", pro: 5999, proName: "One Person Company (OPC)", minPeople: 1, peopleLabel: "Director", slug: "one-person-company-opc" },
   llp: { label: "LLP", pro: 5999, proName: "Limited Liability Partnership", minPeople: 2, peopleLabel: "Designated partners", slug: "limited-liability-partnership-llp" },
 };
 
