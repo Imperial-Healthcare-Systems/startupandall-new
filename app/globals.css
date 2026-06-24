@@ -585,6 +585,8 @@ html.js-anim .reveal-scale.in{animation:revInScale .7s cubic-bezier(.22,1,.36,1)
 
 /* gradient headline shimmer */
 .grad-text{background:linear-gradient(100deg,#1D5FE0 0%,#4F8BF5 30%,#F26B1D 70%,#FF9A52 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:gradShift 6s ease-in-out infinite}
+/* Hero headline "business." — custom blue gradient (wave animation preserved) */
+.hero-h1 .grad-text{background:linear-gradient(100deg,rgba(29,95,224,1) 0%,rgba(79,139,245,1) 30%,rgba(35,78,149,1) 70%,rgba(5,37,84,1) 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:gradShift 6s ease-in-out infinite}
 @keyframes gradShift{0%,100%{background-position:0 0}50%{background-position:100% 0}}
 
 /* ---- CUSTOM ILLUSTRATIONS ---- */
