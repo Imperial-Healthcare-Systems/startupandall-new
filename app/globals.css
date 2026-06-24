@@ -12,6 +12,8 @@
 :root{
   --blue:#1D5FE0;--blue-dk:#1547AE;--blue-soft:#EAF1FD;--blue-tint:#F5F8FE;
   --orange:#F26B1D;--orange-dk:#D2530B;--orange-soft:#FDF0E7;
+  /* Small "glow on hover" accent gradient (process nodes/icons, category tiles, step badges) */
+  --grad-glow:linear-gradient(135deg,rgba(61,102,216,1) 0%,rgba(134,109,191,1) 70%,rgba(5,37,84,1) 100%);
   --ink:#15233B;--body:#48566E;--muted:#7A879C;
   --white:#FFFFFF;--bg:#FFFFFF;--bg-alt:#F7F9FC;--line:#E7ECF3;--line-soft:#EFF2F7;
   --sans:var(--font-geist-sans),system-ui,-apple-system,sans-serif;--mono:var(--font-geist-mono),monospace;
@@ -537,7 +539,7 @@ html.js-anim .reveal-scale.in{animation:revInScale .7s cubic-bezier(.22,1,.36,1)
 .catpill:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 12px 30px rgba(21,35,59,.1)}
 .catpill-ic{width:40px;height:40px;border-radius:11px;background:var(--blue-tint);color:var(--blue);display:inline-flex;align-items:center;justify-content:center}
 .catpill-ic svg{width:20px;height:20px}
-.catpill:hover .catpill-ic{background:linear-gradient(135deg,var(--blue),var(--orange));color:#fff}
+.catpill:hover .catpill-ic{background:var(--grad-glow);color:#fff}
 .catpill-name{font-weight:600;font-size:14px;color:var(--ink);line-height:1.3}
 .catpill-n{position:absolute;top:16px;right:16px;font-family:var(--mono);font-size:11px;font-weight:500;color:var(--muted);background:var(--bg-alt);border:1px solid var(--line);padding:2px 8px;border-radius:999px}
 
@@ -634,7 +636,7 @@ html.js-anim .reveal-scale.in{animation:revInScale .7s cubic-bezier(.22,1,.36,1)
 .steps{position:relative}
 .step{position:relative;z-index:2}
 .step-n{position:relative;overflow:hidden}
-.step:hover .step-n{background:linear-gradient(90deg,var(--blue),var(--orange));color:#fff;border-color:transparent}
+.step:hover .step-n{background:var(--grad-glow);color:#fff;border-color:transparent}
 
 /* ---- floating mini-illustrations in hero corners ---- */
 .hero-floaty{position:absolute;z-index:2;opacity:.9;animation:illoFloat 6s ease-in-out infinite}
@@ -845,7 +847,7 @@ html.js-anim .reveal-scale.in{animation:revInScale .7s cubic-bezier(.22,1,.36,1)
 .proc-rail{position:relative;display:flex;justify-content:center;width:46px;flex-shrink:0}
 .proc-node{position:relative;z-index:2;width:46px;height:46px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;font-size:16px;color:var(--blue);background:var(--white);border:2px solid var(--blue-soft);box-shadow:var(--shadow-sm);transition:transform .3s cubic-bezier(.22,1,.36,1),border-color .3s,color .3s,box-shadow .3s}
 /* connector line runs through the centre of the rail, behind the node */
-.proc-step:not(.is-last) .proc-rail::after{content:'';position:absolute;top:46px;bottom:-18px;left:50%;width:2px;transform:translateX(-50%);background:linear-gradient(180deg,var(--blue),var(--orange));opacity:.35}
+.proc-step:not(.is-last) .proc-rail::after{content:'';position:absolute;top:46px;bottom:-18px;left:50%;width:2px;transform:translateX(-50%);background:var(--grad-glow);opacity:.35}
 /* card */
 .proc-card{display:flex;align-items:flex-start;gap:14px;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow-sm);transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s,border-color .3s}
 .proc-ic{flex-shrink:0;width:40px;height:40px;border-radius:11px;display:inline-flex;align-items:center;justify-content:center;background:var(--blue-tint);color:var(--blue);transition:background .3s,color .3s,transform .3s}
@@ -856,8 +858,8 @@ html.js-anim .reveal-scale.in{animation:revInScale .7s cubic-bezier(.22,1,.36,1)
 .proc-desc{font-size:14px;color:var(--body);line-height:1.55}
 /* hover: lift the card, energise the node + icon with the brand gradient */
 .proc-step:hover .proc-card{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--blue-soft)}
-.proc-step:hover .proc-node{transform:scale(1.06);border-color:transparent;color:#fff;background:linear-gradient(135deg,var(--blue),var(--orange));box-shadow:0 8px 20px rgba(29,95,224,.25)}
-.proc-step:hover .proc-ic{background:linear-gradient(135deg,var(--blue),var(--orange));color:#fff;transform:scale(1.04)}
+.proc-step:hover .proc-node{transform:scale(1.06);border-color:transparent;color:#fff;background:var(--grad-glow);box-shadow:0 8px 20px rgba(29,95,224,.25)}
+.proc-step:hover .proc-ic{background:var(--grad-glow);color:#fff;transform:scale(1.04)}
 /* staggered entrance: each step uses the site's .reveal system; stagger via delay */
 .js-anim .proc-step.reveal.in{animation:revIn .6s cubic-bezier(.22,1,.36,1) both;animation-delay:calc(var(--i) * .07s)}
 
@@ -868,7 +870,7 @@ html.js-anim .reveal-scale.in{animation:revInScale .7s cubic-bezier(.22,1,.36,1)
   .proc-timeline[data-steps="4"] .proc-card{margin:0 8px;flex:1}
   .proc-timeline[data-steps="4"] .proc-rail{width:100%;height:46px;margin:0 auto 16px}
   /* horizontal connector: from this node's centre across to the next node's centre */
-  .proc-timeline[data-steps="4"] .proc-step:not(.is-last) .proc-rail::after{top:23px;bottom:auto;left:50%;right:auto;width:100%;height:2px;transform:translateY(-50%);background:linear-gradient(90deg,var(--blue),var(--orange));opacity:.35}
+  .proc-timeline[data-steps="4"] .proc-step:not(.is-last) .proc-rail::after{top:23px;bottom:auto;left:50%;right:auto;width:100%;height:2px;transform:translateY(-50%);background:var(--grad-glow);opacity:.35}
   .proc-timeline[data-steps="4"] .proc-card{flex-direction:column;align-items:center;text-align:center;gap:12px;height:100%;padding:22px 16px}
   .proc-timeline[data-steps="4"] .proc-txt{align-items:center}
   .proc-timeline[data-steps="4"] .proc-desc{text-wrap:pretty}
