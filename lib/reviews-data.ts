@@ -1,45 +1,45 @@
 export const REVIEWS = [
   {
     "platform": "google",
-    "name": "[Reviewer name]",
+    "name": "Prashant Surwase",
     "rating": 5,
-    "date": "[Month YYYY]",
-    "text": "[Paste the Google review text here. This is placeholder copy showing how a five-star review will appear in the card layout once the real content is added.]"
-  },
-  {
-    "platform": "justdial",
-    "name": "[Reviewer name]",
-    "rating": 5,
-    "date": "[Month YYYY]",
-    "text": "[Paste the Justdial review text here. Replace this placeholder with a genuine customer review; the card design, stars and avatar update automatically.]"
+    "date": "",
+    "text": "Good service with quick response to do all tax related work on time. Sachin Gadekar sir have very polite and humble in nature. Thanks for your guidance and information that you have provided regarding ITR."
   },
   {
     "platform": "google",
-    "name": "[Reviewer name]",
+    "name": "Vinit Dharankar",
     "rating": 5,
-    "date": "[Month YYYY]",
-    "text": "[Paste another Google review here. You can add as many entries as you like — the grid reflows responsively for any number of reviews.]"
+    "date": "",
+    "text": "Very good service for trade mark registration. He gives you knowledge and guide properly to choose the trade mark application wisely."
   },
   {
     "platform": "justdial",
-    "name": "[Reviewer name]",
+    "name": "Shriram",
     "rating": 5,
-    "date": "[Month YYYY]",
-    "text": "[Paste another Justdial review here. Shorter and longer reviews both render cleanly thanks to the flexible card height.]"
+    "date": "",
+    "text": "Very well explained about Trademark and patent services. Quick response and fair prices for the service."
   },
   {
     "platform": "google",
-    "name": "[Reviewer name]",
+    "name": "Pankaj Kulkarni",
     "rating": 5,
-    "date": "[Month YYYY]",
-    "text": "[Paste a Google review here highlighting a specific service — incorporation, GST, compliance or tax — to make the social proof concrete.]"
+    "date": "",
+    "text": "This firm is having good knowledge bank. I had filed Patent with their help. They discussed with me in depth about it then they prepared draft & get verified from me & filed my application online. I appreciate their efforts about my work. I got best service to complete my dream. I am going to file 3 more patents through this firm only. Thank you very much Sachin Gadekar Sir."
+  },
+  {
+    "platform": "google",
+    "name": "Harshad Dharme",
+    "rating": 5,
+    "date": "",
+    "text": "I had a very smooth experience with this firm for my trademark registration. They guided me properly at every step, handled the documentation professionally, and kept me updated throughout the process. Their service is fast, reliable, and truly hassle-free. Highly recommended for anyone looking to register their brand!"
   },
   {
     "platform": "justdial",
-    "name": "[Reviewer name]",
+    "name": "ankush kokitkar",
     "rating": 5,
-    "date": "[Month YYYY]",
-    "text": "[Paste a Justdial review here. Tip: lead with the outcome the client got, then the experience working with the team.]"
+    "date": "",
+    "text": "Sachin Vadekar & Associates proficiency in financial modeling and forecasting is outstanding."
   }
 ] as const;
 
