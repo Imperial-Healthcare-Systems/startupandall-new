@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Service } from "@/lib/types";
 import { DocsInfographic } from "@/lib/docs";
+import { PKG_QUOTES } from "@/lib/quote-data";
 
 const arrow = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -44,8 +45,57 @@ const STEP_ICONS = [
   </svg>,
 ];
 
+const layers = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+    <polyline points="2 17 12 22 22 17" />
+    <polyline points="2 12 12 17 22 12" />
+  </svg>
+);
+
+const star = (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z" />
+  </svg>
+);
+
+const info = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <line x1="12" y1="16" x2="12" y2="12" />
+    <line x1="12" y1="8" x2="12.01" y2="8" />
+  </svg>
+);
+
+const tag = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+    <line x1="7" y1="7" x2="7.01" y2="7" />
+  </svg>
+);
+
+// Incorporation packages shown on eligible sub-service pages. Tier copy, prices,
+// deliverables and savings all come from PKG_QUOTES — the single source of truth.
+type IncorpPkg = {
+  name: string;
+  price: string;
+  note: string;
+  deliverables: readonly string[];
+  alaCarte: string;
+  save: string;
+};
+const PKG = PKG_QUOTES as unknown as Record<string, IncorpPkg>;
+
+const INCORP_TIERS = [
+  { slug: "pkg-essential", variant: "essential", recommended: false },
+  { slug: "pkg-professional", variant: "professional", recommended: true },
+  { slug: "pkg-elite", variant: "elite", recommended: false },
+] as const;
+
 export default function ServiceDetail({ service: d }: { service: Service }) {
   const nSteps = d.steps.length;
+  // Show incorporation packages everywhere except incorporation-adjacent pages.
+  const showPackages = d.category !== "Business Registration & Setup" && d.slug !== "llp-registration";
   return (
     <>
       <section className="sp-hero">
@@ -178,6 +228,89 @@ export default function ServiceDetail({ service: d }: { service: Service }) {
           </aside>
         </div>
       </section>
+
+      {showPackages && (
+        <section className="wrap ipkg-sec reveal">
+          <div className="ipkg-panel">
+            <div className="ipkg-head">
+              <div className="ipkg-head-l">
+                <span className="eyebrow">
+                  <i />
+                  Need to incorporate first?
+                </span>
+                <h2 className="h2">Start with the right incorporation package</h2>
+                <p className="ipkg-sub">Complete Pvt Ltd incorporation, end-to-end — pick the tier that fits where you&apos;re starting from.</p>
+              </div>
+              <p className="ipkg-note">
+                <span className="ipkg-note-ic">{info}</span>
+                <span>
+                  DSC &amp; government fees at actuals — compute yours in the <Link href="/cost-calculator">cost calculator</Link>.
+                </span>
+              </p>
+            </div>
+
+            <div className="ipkg-grid">
+              {INCORP_TIERS.map((t, i) => {
+                const p = PKG[t.slug];
+                const prev = i > 0 ? PKG[INCORP_TIERS[i - 1].slug] : null;
+                const items = p.deliverables.slice(prev ? prev.deliverables.length : 0);
+                return (
+                  <div className={"ipkg-card ipkg-card--" + t.variant + (t.recommended ? " ipkg-card--rec" : "")} key={t.slug}>
+                    {t.recommended && (
+                      <span className="ipkg-rec">
+                        {star}
+                        Recommended
+                      </span>
+                    )}
+                    <div className="ipkg-card-top">
+                      <span className="ipkg-ic">{layers}</span>
+                      <div className="ipkg-id">
+                        <h3 className="ipkg-name">{p.name}</h3>
+                        <p className="ipkg-cnote">{p.note}</p>
+                      </div>
+                      <div className="ipkg-price">
+                        <b>{p.price}</b>
+                        <span>+ DSC &amp; govt. fees at actuals</span>
+                      </div>
+                    </div>
+                    <div className="ipkg-incl">Includes {p.deliverables.length} deliverables</div>
+                    <ul className="ipkg-list">
+                      {prev && <li className="ipkg-lead">Everything in {prev.name}, plus:</li>}
+                      {items.map((it, k) => (
+                        <li key={k}>
+                          <span className="ipkg-chk">{check}</span>
+                          {it}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link href={`/quote/${t.slug}`} className={"ipkg-btn ipkg-btn--" + t.variant}>
+                      Choose {p.name} {arrow}
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="ipkg-save">
+              <div className="ipkg-save-l">
+                <span className="ipkg-save-ic">{tag}</span>
+                <span>
+                  <b>Save more with complete packages</b> <i>(vs. à-la-carte)</i>
+                </span>
+              </div>
+              {INCORP_TIERS.map((t) => {
+                const p = PKG[t.slug];
+                return (
+                  <div className="ipkg-save-col" key={t.slug}>
+                    <span className="ipkg-save-total">{p.alaCarte}</span>
+                    <span className="ipkg-save-pill">Save {p.save}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="wrap pb-big">
         <div className="cta-box reveal">
