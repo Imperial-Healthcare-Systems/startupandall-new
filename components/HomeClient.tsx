@@ -28,16 +28,44 @@ function rvInitials(name: string) {
 type Platform = { name: string; url: string; rating: string; count: string };
 const PLATS = RV_PLATFORMS as unknown as Record<string, Platform>;
 
-function renderReviews() {
+/** Full label shown on the hero trust badges (falls back to the platform name). */
+const HERO_BADGE_LABEL: Record<string, string> = {
+  google: "Google Business Profile",
+  justdial: "Justdial",
+};
+
+/** Renders the GMB / Justdial trust badges in the hero from resolved platform data. */
+function renderHeroBadges(plats: Record<string, Platform>) {
+  const el = document.getElementById("hero-badges");
+  if (!el) return;
+  el.innerHTML = Object.keys(plats)
+    .map((k) => {
+      const p = plats[k];
+      const label = HERO_BADGE_LABEL[k] || p.name;
+      return (
+        '<a class="hero-badge" href="' + p.url + '" target="_blank" rel="noopener noreferrer" aria-label="' +
+        p.rating + ' star rating on ' + label + (p.count ? ", " + p.count + " reviews" : "") + '">' +
+        '<span class="hb-ic">' + rvLogo(k) + "</span>" +
+        '<span class="hb-meta">' +
+        '<span class="hb-title">' + label + "</span>" +
+        '<span class="hb-score"><b>' + p.rating + "</b>" + rvStars(parseFloat(p.rating)) +
+        (p.count ? '<span class="hb-count">' + p.count + " reviews</span>" : "") +
+        "</span></span></a>"
+      );
+    })
+    .join("");
+}
+
+function renderReviews(plats: Record<string, Platform>) {
   const platsEl = document.getElementById("rv-plats");
   const gridEl = document.getElementById("rv-grid");
   const ctaEl = document.getElementById("rv-cta");
   if (!gridEl) return;
 
   if (platsEl) {
-    platsEl.innerHTML = Object.keys(PLATS)
+    platsEl.innerHTML = Object.keys(plats)
       .map((k) => {
-        const p = PLATS[k];
+        const p = plats[k];
         return (
           '<a class="rv-plat" href="' + p.url + '" target="_blank" rel="noopener noreferrer">' +
           '<span class="rv-plat-ic">' + rvLogo(k) + "</span>" +
@@ -51,7 +79,7 @@ function renderReviews() {
   }
 
   gridEl.innerHTML = REVIEWS.map((r) => {
-    const pname = (PLATS[r.platform] || ({} as Platform)).name || "";
+    const pname = (plats[r.platform] || ({} as Platform)).name || "";
     return (
       '<article class="rv-card reveal">' +
       '<div class="rv-card-top"><span class="rv-badge" title="' + pname + '">' + rvLogo(r.platform) + "</span>" +
@@ -68,9 +96,9 @@ function renderReviews() {
   if (ctaEl) {
     const arrow =
       '<span class="rv-btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>';
-    ctaEl.innerHTML = Object.keys(PLATS)
+    ctaEl.innerHTML = Object.keys(plats)
       .map((k) => {
-        const p = PLATS[k];
+        const p = plats[k];
         return (
           '<a class="rv-btn" href="' + p.url + '" target="_blank" rel="noopener noreferrer">' +
           '<span class="rv-btn-logo">' + rvLogo(k) + "</span>View all " + p.name + " reviews" + arrow + "</a>"
@@ -80,12 +108,15 @@ function renderReviews() {
   }
 }
 
-/** Drives the home page's static markup: hero canvas + injected reviews. */
-export default function HomeClient() {
+/** Drives the home page's static markup: hero canvas + injected reviews/badges. */
+export default function HomeClient({ platforms }: { platforms?: Record<string, Platform> }) {
   useEffect(() => {
-    renderReviews();
+    // Server-resolved live ratings when provided; otherwise the static config.
+    const plats = platforms && Object.keys(platforms).length ? platforms : PLATS;
+    renderHeroBadges(plats);
+    renderReviews(plats);
     const cv = document.getElementById("hero-canvas") as HTMLCanvasElement | null;
     if (cv) return startHeroCanvas(cv);
-  }, []);
+  }, [platforms]);
   return null;
 }
