@@ -43,17 +43,29 @@ export const REVIEWS = [
   }
 ] as const;
 
+/**
+ * Source-of-truth / fallback rating data for the review platforms.
+ *
+ * `rating` and `count` here are the last manually-verified live values. They are
+ * used directly for Justdial (no public API — see lib/ratings.ts) and act as the
+ * fallback for Google when the live Places API is not configured or unreachable.
+ *
+ * When the Google Places API env vars are set, the Google `rating`/`count` are
+ * overridden at request time with the live values — see lib/ratings.ts.
+ *
+ * Values last verified against the live listings on 2026-06-24.
+ */
 export const RV_PLATFORMS = {
   "google": {
     "name": "Google",
     "url": "https://maps.app.goo.gl/JAHBdTmhUhoxS5Tw7",
-    "rating": "5.0",
-    "count": ""
+    "rating": "4.7",
+    "count": "109"
   },
   "justdial": {
     "name": "Justdial",
     "url": "https://jsdl.in/DT-49E2Y2AAEUA",
-    "rating": "5.0",
-    "count": ""
+    "rating": "4.7",
+    "count": "145"
   }
 } as const;
