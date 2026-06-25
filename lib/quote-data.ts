@@ -54,8 +54,8 @@ export const PKG_QUOTES = {
     "per": "",
     "note": "Complete Pvt Ltd incorporation, end-to-end. DSC & government fees at actuals.",
     "scope": "8 deliverables",
-    "alaCarte": "₹9,332",
-    "save": "₹2,333",
+    "alaCarte": "₹13,998",
+    "save": "₹6,999",
     "deliverables": [
       "Digital signature processing — 2 directors",
       "DIN allotment within SPICe+",
@@ -82,8 +82,8 @@ export const PKG_QUOTES = {
     "per": "",
     "note": "Incorporation plus GST & MSME registration — invoice-ready from day one. DSC & government fees at actuals.",
     "scope": "10 deliverables",
-    "alaCarte": "₹25,332",
-    "save": "₹6,333",
+    "alaCarte": "₹27,500",
+    "save": "₹8,500",
     "deliverables": [
       "Digital signature processing — 2 directors",
       "DIN allotment within SPICe+",
@@ -113,8 +113,8 @@ export const PKG_QUOTES = {
     "per": "",
     "note": "Everything in Professional plus all mandatory first-year MCA filings (INC-20A, ADT-1, AOC-4, MGT-7A, DIR-3 KYC). DSC & government fees at actuals.",
     "scope": "14 deliverables",
-    "alaCarte": "₹46,665",
-    "save": "₹11,666",
+    "alaCarte": "₹48,000",
+    "save": "₹13,000",
     "deliverables": [
       "Digital signature processing — 2 directors",
       "DIN allotment within SPICe+",
