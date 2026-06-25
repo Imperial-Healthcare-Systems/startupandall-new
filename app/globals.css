@@ -585,9 +585,12 @@ html.js-anim .reveal-scale.in{animation:revInScale .7s cubic-bezier(.22,1,.36,1)
 
 /* gradient headline shimmer */
 .grad-text{background:linear-gradient(100deg,#1D5FE0 0%,#4F8BF5 30%,#F26B1D 70%,#FF9A52 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:gradShift 6s ease-in-out infinite}
-/* Hero headline "business." — custom blue gradient (wave animation preserved) */
-.hero-h1 .grad-text{background:linear-gradient(100deg,rgba(29,95,224,1) 0%,rgba(79,139,245,1) 30%,rgba(35,78,149,1) 70%,rgba(5,37,84,1) 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:gradShift 6s ease-in-out infinite}
+/* Hero headline "business." — custom blue gradient (wave preserved) + ivory shimmer sweep */
+.hero-h1 .grad-text{position:relative;display:inline-block;overflow:hidden;background:linear-gradient(100deg,rgba(29,89,209,1) 0%,rgba(3,79,156,1) 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:gradShift 6s ease-in-out infinite}
+.hero-h1 .grad-text::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 38%,rgba(255,250,240,.7) 50%,transparent 62%);transform:translateX(-100%);animation:heroShine 5s ease-in-out infinite;pointer-events:none}
 @keyframes gradShift{0%,100%{background-position:0 0}50%{background-position:100% 0}}
+@keyframes heroShine{0%{transform:translateX(-100%)}20%{transform:translateX(100%)}100%{transform:translateX(100%)}}
+@media(prefers-reduced-motion:reduce){.hero-h1 .grad-text::after{animation:none}}
 
 /* ---- CUSTOM ILLUSTRATIONS ---- */
 .illo{width:100%;height:auto;max-width:220px;overflow:visible}
