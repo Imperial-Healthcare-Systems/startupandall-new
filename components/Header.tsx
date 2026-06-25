@@ -120,8 +120,6 @@ const MEGA: MegaGroup[] = [
 ];
 
 const MOBILE_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "/services", label: "Start a Business" },
   { href: "/services", label: "Protect Your Brand" },
   { href: "/services", label: "Tax & Compliance" },
@@ -159,12 +157,6 @@ export default function Header() {
             <Image src="/img/f4fe665155.png" alt="StartupAndAll — start, protect and run your business" width={180} height={42} priority />
           </Link>
           <nav className="hdr-nav">
-            <Link href="/" className={`navlink${isActive("/") ? " active" : ""}`}>
-              Home
-            </Link>
-            <Link href="/about" className={`navlink${isActive("/about") ? " active" : ""}`}>
-              About
-            </Link>
             {MEGA.map((group) => (
               <div className="nav-mega" key={group.label}>
                 <button className="navlink nav-mega-btn">
