@@ -793,27 +793,48 @@ html.js-anim .reveal-scale.in{animation:revInScale .7s cubic-bezier(.22,1,.36,1)
 @media(prefers-reduced-motion:reduce){.cl-arrow svg{animation:none}}
 
 /* ===== MEGA MENU NAV ===== */
-.hdr-nav{gap:2px;align-items:center}
-.nav-mega{position:relative}
+.hdr-nav{gap:2px;align-items:center;position:relative}
+.nav-mega{position:static}
 .nav-mega-btn{display:inline-flex;align-items:center;gap:4px;background:none;border:none;cursor:pointer;font-family:var(--sans)}
 .nav-caret{width:14px;height:14px;transition:transform .25s}
 .nav-mega:hover .nav-caret{transform:rotate(180deg)}
-.mm-panel{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(8px);width:480px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 60px rgba(21,35,59,.16);padding:18px;opacity:0;visibility:hidden;transition:.25s cubic-bezier(.22,1,.36,1);z-index:60}
-.nav-mega:hover .mm-panel{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-.mm-panel::before{content:'';position:absolute;top:-14px;left:0;right:0;height:14px}
+/* All panels share one fixed zone anchored to the nav region (left:0/right:0 of
+   .hdr-nav), so every category opens in the exact same place — the content swaps
+   in, the panel never repositions and never extends past the nav/page margin. */
+.mm-panel{position:absolute;top:calc(100% + 14px);left:0;right:0;transform:translateY(8px);background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 60px rgba(21,35,59,.16);padding:18px;opacity:0;visibility:hidden;transition:opacity .25s cubic-bezier(.22,1,.36,1),transform .25s cubic-bezier(.22,1,.36,1),visibility .25s;z-index:60}
+.nav-mega:hover .mm-panel,.nav-mega:focus-within .mm-panel{opacity:1;visibility:visible;transform:translateY(0)}
+.mm-panel::before{content:'';position:absolute;top:-16px;left:0;right:0;height:16px}
+/* two-panel variant: fixed-width left category rail + flexible submenu zone.
+   The submenu absorbs content-width differences internally (minmax 0 1fr). */
+.mm-panel.mm-two{display:grid;grid-template-columns:212px minmax(0,1fr);gap:14px;padding:14px}
+.mm-cats{display:flex;flex-direction:column;gap:2px}
+.mm-cat{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:9px 11px;border-radius:10px;border:none;background:none;cursor:pointer;font-family:var(--sans);transition:.18s}
+.mm-cat:hover{background:var(--bg-alt)}
+.mm-cat.active{background:var(--blue-tint)}
+.mm-cat-ic{flex-shrink:0;width:30px;height:30px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;background:var(--bg-alt);color:var(--muted);transition:.18s}
+.mm-cat-ic svg{width:16px;height:16px}
+.mm-cat:hover .mm-cat-ic{color:var(--ink)}
+.mm-cat.active .mm-cat-ic{background:#fff;color:var(--blue);box-shadow:var(--shadow-sm)}
+.mm-cat-label{flex:1;font-size:13.5px;font-weight:500;color:var(--body);line-height:1.2}
+.mm-cat.active .mm-cat-label{color:var(--ink)}
+.mm-cat-count{font-size:10px;font-family:var(--mono);color:var(--muted)}
+.mm-cat.active .mm-cat-count{color:var(--blue)}
+.mm-sub{display:flex;flex-direction:column;min-width:0;border-left:1px solid var(--line-soft);padding-left:16px}
+.mm-blurb{font-size:12.5px;color:var(--muted);line-height:1.45;margin:-2px 8px 10px}
 .mm-head{display:flex;align-items:center;gap:8px;font-size:12px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--blue);padding:0 8px 12px;border-bottom:1px solid var(--line-soft);margin-bottom:8px}
 .mm-head svg{width:16px;height:16px}
-.mm-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.mm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:2px 10px}
 .mm-item{display:flex;align-items:center;gap:8px;padding:9px 10px;border-radius:9px;transition:.18s}
-.mm-item:hover{background:var(--blue-tint)}
+.mm-item:hover,.mm-item:focus-visible{background:var(--blue-tint)}
 .mm-item-dot{width:6px;height:6px;border-radius:50%;background:var(--blue-soft);flex-shrink:0;transition:.18s}
 .mm-item:hover .mm-item-dot{background:var(--orange)}
 .mm-item-name{font-size:13.5px;font-weight:500;color:var(--ink);flex:1;line-height:1.25}
 .mm-item-time{font-size:10px;font-family:var(--mono);color:var(--muted);white-space:nowrap}
-.mm-all{display:inline-flex;align-items:center;gap:6px;margin:10px 8px 0;font-size:13px;font-weight:600;color:var(--blue)}
+.mm-all{display:inline-flex;align-items:center;gap:6px;margin:auto 8px 0;padding-top:10px;font-size:13px;font-weight:600;color:var(--blue)}
 .mm-all svg{width:14px;height:14px}
+.mm-cat:focus-visible,.mm-item:focus-visible,.mm-all:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 
-@media(max-width:1180px){.mm-panel{width:420px}}
+@media(max-width:1180px){.mm-panel.mm-two{grid-template-columns:184px minmax(0,1fr)}}
 
 /* ===== SERVICE DETAIL PAGE ===== */
 .sp-hero{position:relative;overflow:hidden;padding:104px 0 56px;background:linear-gradient(180deg,var(--blue-tint),#fff)}
