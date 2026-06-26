@@ -178,9 +178,9 @@ export default function ProposalGenerator({
     return (
       <div className="prop-box">
         <h4>Your proposal, verified to your inbox</h4>
-        <input className="prop-in" placeholder="Full name" value={name} onChange={(e) => setName(e.target.value)} />
-        <input className="prop-in" type="email" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <input className="prop-in" type="tel" placeholder="Mobile number (10 digits)" value={phone} onChange={(e) => setPhone(e.target.value)} />
+        <input key="name" className="prop-in" placeholder="Full name" value={name} onChange={(e) => setName(e.target.value)} />
+        <input key="email" className="prop-in" type="email" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input key="phone" className="prop-in" type="tel" placeholder="Mobile number (10 digits)" value={phone} onChange={(e) => setPhone(e.target.value)} />
         {err && <p className="prop-err">{err}</p>}
         <button className="btn-primary full" style={{ justifyContent: "center" }} disabled={step === "sending"} onClick={sendOtp}>
           {step === "sending" ? "Sending code…" : "Verify email & continue →"}
@@ -199,6 +199,7 @@ export default function ProposalGenerator({
         </p>
         {demoNote}
         <input
+          key="otp"
           className="prop-in prop-otp"
           ref={otpInputRef}
           inputMode="numeric"
