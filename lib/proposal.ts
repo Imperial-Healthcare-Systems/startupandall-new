@@ -105,6 +105,15 @@ export function svcSnapshot(slug: string, lead: Lead): ProposalSnapshot | null {
   const gst = Math.round(0.18 * q.fee);
   const total = q.fee + gst;
   const groups: DocGroup[] = q.docs && q.docs.length ? [{ title: q.name, docs: q.docs.slice() }] : [];
+  // Itemise the package fee when components are defined and reconcile to the fee;
+  // otherwise fall back to a single professional-fee line.
+  const comp =
+    q.components && q.components.length && q.components.reduce((sum, c) => sum + c.amount, 0) === q.fee
+      ? q.components
+      : null;
+  const proLines: [string, string, string][] = comp
+    ? comp.map((c) => [c.label, toRs(c.amount), ""] as [string, string, string])
+    : [[q.name + " - professional fee" + q.per, toRs(q.fee), q.scope || q.note || ""]];
   return {
     ...refBase(),
     name: lead.name,
@@ -117,7 +126,7 @@ export function svcSnapshot(slug: string, lead: Lead): ProposalSnapshot | null {
     people: "",
     peopleLabel: "",
     lines: [
-      [q.name + " - professional fee" + q.per, toRs(q.fee), q.scope || q.note || ""],
+      ...proLines,
       ["GST @ 18%", toRs(gst), ""],
       [q.govt, "-", ""],
     ],

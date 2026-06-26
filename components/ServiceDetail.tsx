@@ -94,8 +94,8 @@ const INCORP_TIERS = [
 
 export default function ServiceDetail({ service: d }: { service: Service }) {
   const nSteps = d.steps.length;
-  // Show incorporation packages everywhere except incorporation-adjacent pages.
-  const showPackages = d.category !== "Business Registration & Setup" && d.slug !== "llp-registration";
+  // Show the incorporation packages only on the Private Limited Company page.
+  const showPackages = d.slug === "private-limited-company";
   return (
     <>
       <section className="sp-hero">

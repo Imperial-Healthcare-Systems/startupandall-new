@@ -88,6 +88,11 @@ export default function QuotePage({ slug, q }: { slug: string; q: QuoteModel }) 
   // Instant, all-inclusive quotation
   const gst = Math.round(0.18 * q.fee);
   const total = q.fee + gst;
+  // Split the package fee into its components when they reconcile to the fee.
+  const components =
+    q.components && q.components.length && q.components.reduce((sum, c) => sum + c.amount, 0) === q.fee
+      ? q.components
+      : null;
   const wa = waBase + encodeURIComponent("Hi Startup And All,\n\nI'd like to proceed with: " + q.name + " (approx " + inr(total) + q.per + " incl. GST).\n\nThanks!");
 
   return (
@@ -114,16 +119,25 @@ export default function QuotePage({ slug, q }: { slug: string; q: QuoteModel }) 
                 </div>
               </div>
               <div className="cr-body">
-                <div className="cr-row">
-                  <span>
-                    {q.name} — professional fee
-                    {q.scope ? <em>{q.scope + (q.timeline ? " · " + q.timeline : "")}</em> : q.timeline ? <em>Typical timeline: {q.timeline}</em> : null}
-                  </span>
-                  <b>
-                    {inr(q.fee)}
-                    {q.per}
-                  </b>
-                </div>
+                {components ? (
+                  components.map((c, i) => (
+                    <div className="cr-row" key={i}>
+                      <span>{c.label}</span>
+                      <b>{inr(c.amount)}</b>
+                    </div>
+                  ))
+                ) : (
+                  <div className="cr-row">
+                    <span>
+                      {q.name} — professional fee
+                      {q.scope ? <em>{q.scope + (q.timeline ? " · " + q.timeline : "")}</em> : q.timeline ? <em>Typical timeline: {q.timeline}</em> : null}
+                    </span>
+                    <b>
+                      {inr(q.fee)}
+                      {q.per}
+                    </b>
+                  </div>
+                )}
                 <div className="cr-row">
                   <span>GST @ 18%</span>
                   <b>{inr(gst)}</b>

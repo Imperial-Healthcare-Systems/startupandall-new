@@ -2,6 +2,11 @@ import { PKG_QUOTES, QUOTE_ENTITY } from "./quote-data";
 import { SERVICE_DATA } from "./service-data";
 import type { Entity } from "./calc";
 
+export interface QuoteComponent {
+  label: string;
+  amount: number;
+}
+
 export interface QuoteModel {
   name: string;
   fee: number | null;
@@ -11,6 +16,7 @@ export interface QuoteModel {
   docs: string[];
   govt: string;
   timeline: string;
+  components?: QuoteComponent[];
 }
 
 export function parsePrice(p: string): number | null {
@@ -18,7 +24,7 @@ export function parsePrice(p: string): number | null {
   return m ? +m[1] : null;
 }
 
-type Pkg = { name: string; price: string; per?: string; note?: string; scope?: string; docs?: readonly string[]; govtLine?: string };
+type Pkg = { name: string; price: string; per?: string; note?: string; scope?: string; docs?: readonly string[]; govtLine?: string; components?: readonly QuoteComponent[] };
 
 export function quoteModel(slug: string): QuoteModel | null {
   const pkgs = PKG_QUOTES as unknown as Record<string, Pkg>;
@@ -34,6 +40,7 @@ export function quoteModel(slug: string): QuoteModel | null {
       docs: [...(p.docs || [])],
       govt: p.govtLine || "No separate government fee — statutory fees, if any, at actuals",
       timeline: "",
+      components: p.components ? p.components.map((c) => ({ ...c })) : undefined,
     };
   }
   const d = SERVICE_DATA[slug];
