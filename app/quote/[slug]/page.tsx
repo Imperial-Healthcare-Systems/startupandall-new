@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { SERVICE_SLUGS } from "@/lib/service-data";
 import { PKG_QUOTES, QUOTE_ENTITY } from "@/lib/quote-data";
 import { quoteModel, quoteEntity, type QuoteModel } from "@/lib/quote";
@@ -6,9 +7,16 @@ import { CALC_CFG } from "@/lib/calc";
 import QuotePage from "@/components/QuotePage";
 import CostCalculator from "@/components/CostCalculator";
 
+// Incorporation packages temporarily removed from the site (client request) — their
+// /quote pages 404 for now. Data is kept in PKG_QUOTES for reintroduction next build.
+// To restore: delete this set, the filter below, and the notFound() guard in QuoteRoute.
+const HIDDEN_PACKAGES = new Set<string>(["pkg-essential", "pkg-professional", "pkg-elite"]);
+
 export function generateStaticParams() {
   const slugs = new Set<string>([...SERVICE_SLUGS, ...Object.keys(PKG_QUOTES), ...Object.keys(QUOTE_ENTITY)]);
-  return Array.from(slugs).map((slug) => ({ slug }));
+  return Array.from(slugs)
+    .filter((s) => !HIDDEN_PACKAGES.has(s))
+    .map((slug) => ({ slug }));
 }
 
 function humanize(slug: string) {
@@ -24,6 +32,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function QuoteRoute({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+
+  if (HIDDEN_PACKAGES.has(slug)) notFound();
 
   // Entity slugs preset the cost calculator.
   const ent = quoteEntity(slug);
