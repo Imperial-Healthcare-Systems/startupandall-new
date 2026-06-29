@@ -4,7 +4,7 @@ import StaticHtml from "@/components/StaticHtml";
 
 export const metadata: Metadata = {
   title: "About — Startup And All",
-  description: "One dedicated advisor, clear upfront pricing, and 180+ services under one roof.",
+  description: "One dedicated advisor, clear upfront pricing, and 150+ services under one roof.",
 };
 
 export default function AboutPage() {

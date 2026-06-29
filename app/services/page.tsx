@@ -4,7 +4,7 @@ import StaticHtml from "@/components/StaticHtml";
 import ServiceCatalogue from "@/components/ServiceCatalogue";
 
 export const metadata: Metadata = {
-  title: "Services & Pricing — 180+ services | Startup And All",
+  title: "Services & Pricing — 150+ services | Startup And All",
   description:
     "Our complete catalogue, grouped by need — company registration, GST, trademarks, ROC/MCA compliance, licences and more. Each service delivered by a dedicated advisor.",
 };
@@ -28,7 +28,7 @@ export default function ServicesPage() {
           <i />
           Section C · Everything we do
         </span>
-        <h2 className="h2">The full catalogue · 183+ services</h2>
+        <h2 className="h2">The full catalogue · 150+ services</h2>
         <p className="sub">Our complete catalogue, grouped by need. Each service is delivered by a dedicated point of contact and priced on request.</p>
         <div className="mt32">
           <ServiceCatalogue />

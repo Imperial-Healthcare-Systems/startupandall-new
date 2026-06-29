@@ -45,50 +45,6 @@ export const SERVICE_DATA: Record<string, Service> = {
     ],
     "detailed": true
   },
-  "private-limited-company-with-name-reservation-run": {
-    "name": "Private Limited Company With Name Reservation (RUN)",
-    "slug": "private-limited-company-with-name-reservation-run",
-    "category": "Business Registration & Setup",
-    "tagline": "Professional Private Limited Company With Name Reservation (RUN) assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "15 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your Private Limited Company With Name Reservation (RUN) from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "PAN & Aadhaar of all directors & shareholders",
-      "Passport-size photographs of directors",
-      "Address proof of directors (recent bank statement / utility bill)",
-      "Registered office proof: utility bill + rent agreement / NOC",
-      "Two proposed company names with meaning / significance",
-      "Trademark search inputs, if the name is brand-led"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
   "limited-liability-partnership-llp": {
     "name": "Limited Liability Partnership (LLP)",
     "slug": "limited-liability-partnership-llp",
@@ -174,50 +130,6 @@ export const SERVICE_DATA: Record<string, Service> = {
       ]
     ],
     "detailed": true
-  },
-  "one-person-company-opc-with-name-reservation": {
-    "name": "One Person Company (OPC) with Name Reservation",
-    "slug": "one-person-company-opc-with-name-reservation",
-    "category": "Business Registration & Setup",
-    "tagline": "Professional One Person Company (OPC) with Name Reservation assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "15 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your One Person Company (OPC) with Name Reservation from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "PAN & Aadhaar of the director and the nominee",
-      "Passport-size photographs of both",
-      "Address proof of director & nominee",
-      "Nominee consent in Form INC-3",
-      "Registered office proof: utility bill + rent agreement / NOC",
-      "Two proposed names with significance note"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
   },
   "partnership-registration": {
     "name": "Partnership Registration",
@@ -355,7 +267,7 @@ export const SERVICE_DATA: Record<string, Service> = {
     "slug": "section-8-company-registration",
     "category": "Business Registration & Setup",
     "tagline": "Professional Section 8 Company Registration assistance, handled end-to-end by your dedicated advisor.",
-    "price": "₹2,499",
+    "price": "₹6,999",
     "timeline": "30 days",
     "govt": "+ govt. fees",
     "what": "Our team handles your Section 8 Company Registration from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
@@ -1332,6 +1244,48 @@ export const SERVICE_DATA: Record<string, Service> = {
       "Stock & input tax credit position on the closure date",
       "Details of the last return filed",
       "Business transfer / closure proof, if applicable"
+    ],
+    "steps": [
+      [
+        "Consultation",
+        "We understand your case and confirm requirements."
+      ],
+      [
+        "Documents",
+        "We collect and verify the paperwork."
+      ],
+      [
+        "Filing",
+        "We prepare and file with the relevant authority."
+      ],
+      [
+        "Delivery",
+        "Your certificate / acknowledgement is delivered."
+      ]
+    ],
+    "detailed": false
+  },
+  "gst-filings": {
+    "name": "GST Filings",
+    "slug": "gst-filings",
+    "category": "GST & Taxation",
+    "tagline": "End-to-end GST return filing — GSTR-1, GSTR-3B and the GSTR-9 annual return, handled by your dedicated advisor.",
+    "price": "₹11,999",
+    "timeline": "3 days",
+    "govt": "+ govt. fees",
+    "what": "Our team handles your GST return filings from start to finish — GSTR-1 (outward supplies), GSTR-3B (monthly summary) and the GSTR-9 annual return — verifying your data, preparing each return, and filing on the GST portal, keeping you compliant and updated at every step.",
+    "benefits": [
+      "Handled by a single dedicated advisor",
+      "Clear, upfront professional fees",
+      "Government fees shown separately",
+      "Returns prepared & filed for you",
+      "Status updates at every stage"
+    ],
+    "docs": [
+      "GST portal login credentials",
+      "Sales & purchase invoices for the period",
+      "Credit & debit notes issued",
+      "Export invoices with shipping bill details, if any"
     ],
     "steps": [
       [
@@ -5267,101 +5221,15 @@ export const SERVICE_DATA: Record<string, Service> = {
     ],
     "detailed": true
   },
-  "icegate-registration-service": {
-    "name": "ICEGATE Registration Service",
-    "slug": "icegate-registration-service",
+  "rera-agent-registration": {
+    "name": "RERA Agent Registration",
+    "slug": "rera-agent-registration",
     "category": "Licences & Certifications",
-    "tagline": "Professional ICEGATE Registration Service assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "12 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your ICEGATE Registration Service from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "IEC certificate",
-      "GST certificate & PAN",
-      "DSC of authorised signatory",
-      "Bank AD code details",
-      "Email & mobile for OTP"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "ad-code-linking-with-icegate": {
-    "name": "AD Code Linking with ICEGATE",
-    "slug": "ad-code-linking-with-icegate",
-    "category": "Licences & Certifications",
-    "tagline": "Professional AD Code Linking with ICEGATE assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "7 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your AD Code Linking with ICEGATE from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "IEC certificate",
-      "AD code letter on bank letterhead",
-      "GST certificate",
-      "ICEGATE login details",
-      "Port details & cancelled cheque"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "apeda-registration": {
-    "name": "APEDA Registration",
-    "slug": "apeda-registration",
-    "category": "Licences & Certifications",
-    "tagline": "Professional APEDA Registration assistance, handled end-to-end by your dedicated advisor.",
+    "tagline": "RERA registration for real-estate agents and brokers, handled end-to-end by your dedicated advisor.",
     "price": "Request quote",
     "timeline": "15 days",
     "govt": "+ govt. fees",
-    "what": "Our team handles your APEDA Registration from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
+    "what": "Our team handles your RERA agent registration from start to finish — verifying your documents, preparing the application, and filing with your State RERA authority, keeping you compliant and updated at every step.",
     "benefits": [
       "Handled by a single dedicated advisor",
       "Clear, upfront professional fees",
@@ -5370,11 +5238,10 @@ export const SERVICE_DATA: Record<string, Service> = {
       "Status updates at every stage"
     ],
     "docs": [
-      "IEC certificate",
-      "Bank certificate or cancelled cheque",
-      "Entity PAN & constitution proof",
-      "List of scheduled products for export",
-      "Office / plant address proof"
+      "Applicant PAN & Aadhaar with photograph",
+      "Entity constitution documents, for firms / companies",
+      "Office address proof",
+      "ITR / financials as applicable"
     ],
     "steps": [
       [
@@ -5396,15 +5263,15 @@ export const SERVICE_DATA: Record<string, Service> = {
     ],
     "detailed": false
   },
-  "ayush-license": {
-    "name": "Ayush License",
-    "slug": "ayush-license",
+  "rera-promoter-registration": {
+    "name": "RERA Promoter Registration",
+    "slug": "rera-promoter-registration",
     "category": "Licences & Certifications",
-    "tagline": "Professional Ayush License assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "7 days",
+    "tagline": "RERA project registration for promoters and developers, handled end-to-end by your dedicated advisor.",
+    "price": "₹14,999",
+    "timeline": "20 days",
     "govt": "+ govt. fees",
-    "what": "Our team handles your Ayush License from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
+    "what": "Our team handles your RERA promoter / project registration from start to finish — verifying your project and land documents, preparing the application, and filing with your State RERA authority, keeping you compliant and updated at every step.",
     "benefits": [
       "Handled by a single dedicated advisor",
       "Clear, upfront professional fees",
@@ -5413,271 +5280,11 @@ export const SERVICE_DATA: Record<string, Service> = {
       "Status updates at every stage"
     ],
     "docs": [
-      "Entity constitution documents & PAN",
-      "Premises layout & address proof",
-      "Product list with manufacturing formula",
-      "Technical staff qualification certificates",
-      "Equipment & machinery list"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "drug-license": {
-    "name": "Drug License",
-    "slug": "drug-license",
-    "category": "Licences & Certifications",
-    "tagline": "Professional Drug License assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "10 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your Drug License from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Premises proof + rent agreement / NOC with layout plan",
-      "Cold storage / refrigerator proof",
-      "Registered pharmacist / competent person certificates & appointment letter",
-      "Entity constitution documents",
-      "KYC of proprietor / partners / directors"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "health-trade-license": {
-    "name": "Health Trade License",
-    "slug": "health-trade-license",
-    "category": "Licences & Certifications",
-    "tagline": "Professional Health Trade License assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "10 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your Health Trade License from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Premises proof + rent agreement / NOC",
-      "Layout plan",
-      "Entity & owner KYC",
-      "Water connection / potability proof",
-      "Pest-control & hygiene arrangements",
-      "Fire NOC, where applicable"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "trade-license-registration": {
-    "name": "Trade License Registration",
-    "slug": "trade-license-registration",
-    "category": "Licences & Certifications",
-    "tagline": "Professional Trade License Registration assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "14 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your Trade License Registration from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Premises proof + rent agreement / NOC",
-      "Owner / entity KYC & PAN",
-      "Layout plan of the premises",
-      "Business activity details",
-      "Fire NOC, where applicable"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "central-labour-license": {
-    "name": "Central Labour License",
-    "slug": "central-labour-license",
-    "category": "Licences & Certifications",
-    "tagline": "Professional Central Labour License assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "15 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your Central Labour License from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Establishment registration certificate",
-      "Work order & principal employer certificate (Form V)",
-      "Contractor entity PAN & address proof",
-      "Workmen count & wage details",
-      "Security deposit particulars"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "cte-consent-to-establish": {
-    "name": "CTE (Consent to Establish)",
-    "slug": "cte-consent-to-establish",
-    "category": "Licences & Certifications",
-    "tagline": "Professional CTE (Consent to Establish) assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "10 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your CTE (Consent to Establish) from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Project report with manufacturing process details",
-      "Site / land documents (ownership or lease)",
-      "Layout plan",
-      "Capital investment proof",
-      "Water & power requirement details",
-      "Entity constitution proof & PAN"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "cto-consent-to-operate": {
-    "name": "CTO (Consent to Operate)",
-    "slug": "cto-consent-to-operate",
-    "category": "Licences & Certifications",
-    "tagline": "Professional CTO (Consent to Operate) assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "10 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your CTO (Consent to Operate) from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Valid Consent to Establish (CTE) copy",
-      "Compliance report against CTE conditions",
-      "Pollution-control equipment installation proof",
-      "Latest effluent / emission analysis reports",
-      "Entity documents"
+      "Applicant PAN & Aadhaar with photograph",
+      "Entity constitution documents, for firms / companies",
+      "Office address proof",
+      "ITR / financials as applicable",
+      "Project, land title & approval documents"
     ],
     "steps": [
       [
@@ -5742,49 +5349,6 @@ export const SERVICE_DATA: Record<string, Service> = {
     ],
     "detailed": false
   },
-  "legal-metrology-packaged-commodities": {
-    "name": "Legal Metrology Packaged Commodities",
-    "slug": "legal-metrology-packaged-commodities",
-    "category": "Licences & Certifications",
-    "tagline": "Professional Legal Metrology Packaged Commodities assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "10 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your Legal Metrology Packaged Commodities from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Entity & premises address proof",
-      "Specimen labels of products",
-      "Packing details: weights & measures",
-      "Constitution proof & PAN",
-      "List of commodities"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
   "legal-entity-identifier-lei": {
     "name": "Legal Entity Identifier (LEI)",
     "slug": "legal-entity-identifier-lei",
@@ -5806,6 +5370,50 @@ export const SERVICE_DATA: Record<string, Service> = {
       "Audited financial statements",
       "Board authorisation & signatory KYC",
       "Holding company details, if any"
+    ],
+    "steps": [
+      [
+        "Consultation",
+        "We understand your case and confirm requirements."
+      ],
+      [
+        "Documents",
+        "We collect and verify the paperwork."
+      ],
+      [
+        "Filing",
+        "We prepare and file with the relevant authority."
+      ],
+      [
+        "Delivery",
+        "Your certificate / acknowledgement is delivered."
+      ]
+    ],
+    "detailed": false
+  },
+  "barcode-registration": {
+    "name": "Barcode Registration",
+    "slug": "barcode-registration",
+    "category": "Licences & Certifications",
+    "tagline": "Professional Barcode Registration assistance, handled end-to-end by your dedicated advisor.",
+    "price": "Request quote",
+    "timeline": "10 days",
+    "govt": "+ govt. fees",
+    "what": "Our team handles your Barcode Registration from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
+    "benefits": [
+      "Handled by a single dedicated advisor",
+      "Clear, upfront professional fees",
+      "Government fees shown separately",
+      "Documents prepared & filed for you",
+      "Status updates at every stage"
+    ],
+    "docs": [
+      "Entity PAN & GST certificate",
+      "Constitution proof (incorporation / deed)",
+      "Product list with categories",
+      "Turnover declaration",
+      "Cancelled cheque",
+      "Authorisation letter"
     ],
     "steps": [
       [
@@ -5871,91 +5479,6 @@ export const SERVICE_DATA: Record<string, Service> = {
     ],
     "detailed": false
   },
-  "issn-registration": {
-    "name": "ISSN Registration",
-    "slug": "issn-registration",
-    "category": "Licences & Certifications",
-    "tagline": "Professional ISSN Registration assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "10 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your ISSN Registration from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Publication title & sample issue",
-      "Publisher entity documents",
-      "Periodical declaration / registration details",
-      "Editor details",
-      "Website link, for e-journals"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "duns": {
-    "name": "DUNS",
-    "slug": "duns",
-    "category": "Licences & Certifications",
-    "tagline": "Professional DUNS assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "7 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your DUNS from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Entity PAN & incorporation certificate",
-      "Office address proof",
-      "Principal officer contact details",
-      "Business activity & employee count"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
   "gem-registration": {
     "name": "GeM Registration",
     "slug": "gem-registration",
@@ -5979,265 +5502,6 @@ export const SERVICE_DATA: Record<string, Service> = {
       "Aadhaar of authorised person with linked mobile",
       "ITR details (for bidding eligibility)",
       "Product / service list"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "cgtmse": {
-    "name": "CGTMSE",
-    "slug": "cgtmse",
-    "category": "Licences & Certifications",
-    "tagline": "Professional CGTMSE assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "15 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your CGTMSE from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Udyam / MSME certificate",
-      "Bank sanction letter",
-      "Project report",
-      "Entity PAN & promoter KYC",
-      "Financials / ITR",
-      "Collateral status declaration"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "spices-board-registration": {
-    "name": "Spices Board Registration",
-    "slug": "spices-board-registration",
-    "category": "Licences & Certifications",
-    "tagline": "Professional Spices Board Registration assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "8 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your Spices Board Registration from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "IEC certificate",
-      "Entity constitution proof & PAN",
-      "GST certificate",
-      "Premises address proof",
-      "List of spices for export",
-      "Bank certificate"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "stpi-registration": {
-    "name": "STPI Registration",
-    "slug": "stpi-registration",
-    "category": "Licences & Certifications",
-    "tagline": "Professional STPI Registration assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "10 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your STPI Registration from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Entity incorporation certificate & PAN",
-      "Board resolution / MoA covering software exports",
-      "IEC certificate",
-      "Business plan with projected exports",
-      "Premises proof",
-      "Authorised signatory KYC"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "stpi-filings": {
-    "name": "STPI Filings",
-    "slug": "stpi-filings",
-    "category": "Licences & Certifications",
-    "tagline": "Professional STPI Filings assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "10 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your STPI Filings from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "STPI registration certificate",
-      "Export & domestic invoices for the period",
-      "Softex submission data",
-      "Financial statements / performance report inputs"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "softex-registration": {
-    "name": "Softex Registration",
-    "slug": "softex-registration",
-    "category": "Licences & Certifications",
-    "tagline": "Professional Softex Registration assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "60 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your Softex Registration from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "IEC certificate",
-      "STPI / SEZ registration",
-      "Entity PAN & incorporation proof",
-      "Master service agreements with clients",
-      "Bank AD details"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "softex-filings": {
-    "name": "Softex Filings",
-    "slug": "softex-filings",
-    "category": "Licences & Certifications",
-    "tagline": "Professional Softex Filings assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "30 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your Softex Filings from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "STPI registration & login",
-      "Export invoices for the period",
-      "Master service agreements",
-      "Inward remittance details (FIRC / BRC)"
     ],
     "steps": [
       [
@@ -6515,49 +5779,6 @@ export const SERVICE_DATA: Record<string, Service> = {
     ],
     "detailed": false
   },
-  "newspaper-publishing": {
-    "name": "Newspaper Publishing",
-    "slug": "newspaper-publishing",
-    "category": "Licences & Certifications",
-    "tagline": "Professional Newspaper Publishing assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "5 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your Newspaper Publishing from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Proposed title options",
-      "Owner / publisher KYC",
-      "Declaration particulars before the District Magistrate",
-      "Printing press details",
-      "Periodicity & language details"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
   "epfo-filings": {
     "name": "EPFO Filings",
     "slug": "epfo-filings",
@@ -6664,135 +5885,6 @@ export const SERVICE_DATA: Record<string, Service> = {
       "Attendance & leave data",
       "PF, ESIC & PT registrations",
       "Investment declarations of employees"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "hr-services": {
-    "name": "HR Services",
-    "slug": "hr-services",
-    "category": "Payroll, Labour & HR",
-    "tagline": "Professional HR Services assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "10 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your HR Services from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Organisation structure & headcount",
-      "Existing HR policies, if any",
-      "Offer / appointment letter templates",
-      "Statutory registrations (PF / ESIC / PT)",
-      "Engagement brief"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "posh-policy": {
-    "name": "POSH Policy",
-    "slug": "posh-policy",
-    "category": "Payroll, Labour & HR",
-    "tagline": "Professional POSH Policy assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "14 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your POSH Policy from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Company details & organisation chart",
-      "Headcount & office locations",
-      "Existing HR policy, if any",
-      "Internal committee member details",
-      "External member contact (we can assist)"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "dedicated-telecalling-support-team": {
-    "name": "Dedicated Telecalling Support Team",
-    "slug": "dedicated-telecalling-support-team",
-    "category": "Payroll, Labour & HR",
-    "tagline": "Professional Dedicated Telecalling Support Team assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "7 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your Dedicated Telecalling Support Team from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Process brief & calling scripts",
-      "Expected call volumes & timings",
-      "CRM / dialer access details",
-      "Escalation matrix",
-      "Data-sharing terms"
     ],
     "steps": [
       [
@@ -7057,49 +6149,6 @@ export const SERVICE_DATA: Record<string, Service> = {
       "KYC of office bearers (PAN & Aadhaar)",
       "Bank account details",
       "Sector & activity details"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "fund-utilization-plan": {
-    "name": "Fund Utilization Plan",
-    "slug": "fund-utilization-plan",
-    "category": "NGO, Charitable & Funding",
-    "tagline": "Professional Fund Utilization Plan assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "10 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your Fund Utilization Plan from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Grant / sanction letter",
-      "Project budget & timelines",
-      "Bank statements",
-      "Expenditure vouchers summary",
-      "Activity milestones achieved"
     ],
     "steps": [
       [
@@ -7674,182 +6723,12 @@ export const SERVICE_DATA: Record<string, Service> = {
     ],
     "detailed": false
   },
-  "civil-liability-insurance": {
-    "name": "Civil Liability Insurance",
-    "slug": "civil-liability-insurance",
-    "category": "Advisory, Legal & Reports",
-    "tagline": "Professional Civil Liability Insurance assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "3 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your Civil Liability Insurance from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Entity incorporation certificate & PAN",
-      "Business activity profile",
-      "Turnover details",
-      "Prior claims history, if any",
-      "Coverage requirement"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "virtual-office-with-incorporation": {
-    "name": "Virtual Office (With Incorporation)",
-    "slug": "virtual-office-with-incorporation",
-    "category": "Virtual Office & Other",
-    "tagline": "Professional Virtual Office (With Incorporation) assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "2 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your Virtual Office (With Incorporation) from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "PAN & Aadhaar of directors / partners",
-      "Passport-size photographs",
-      "Address proofs of promoters",
-      "Proposed entity names & business activity",
-      "We provide: rent agreement, NOC & utility bill of the virtual address"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "virtual-office-without-incorporation": {
-    "name": "Virtual Office (Without Incorporation)",
-    "slug": "virtual-office-without-incorporation",
-    "category": "Virtual Office & Other",
-    "tagline": "Professional Virtual Office (Without Incorporation) assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "7 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your Virtual Office (Without Incorporation) from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Entity PAN & incorporation / deed",
-      "KYC of authorised signatory",
-      "State & purpose (GST / business address)",
-      "We provide: rent agreement, NOC & utility bill of the address"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
-  "others-rare-service-govt-fee": {
-    "name": "Others (rare service / govt fee)",
-    "slug": "others-rare-service-govt-fee",
-    "category": "Virtual Office & Other",
-    "tagline": "Professional Others (rare service / govt fee) assistance, handled end-to-end by your dedicated advisor.",
-    "price": "Request quote",
-    "timeline": "10 days",
-    "govt": "+ govt. fees",
-    "what": "Our team handles your Others (rare service / govt fee) from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",
-    "benefits": [
-      "Handled by a single dedicated advisor",
-      "Clear, upfront professional fees",
-      "Government fees shown separately",
-      "Documents prepared & filed for you",
-      "Status updates at every stage"
-    ],
-    "docs": [
-      "Brief of the specific service / approval needed",
-      "Applicable government notification or challan, if known",
-      "Entity & signatory KYC",
-      "Prior correspondence with the department, if any"
-    ],
-    "steps": [
-      [
-        "Consultation",
-        "We understand your case and confirm requirements."
-      ],
-      [
-        "Documents",
-        "We collect and verify the paperwork."
-      ],
-      [
-        "Filing",
-        "We prepare and file with the relevant authority."
-      ],
-      [
-        "Delivery",
-        "Your certificate / acknowledgement is delivered."
-      ]
-    ],
-    "detailed": false
-  },
   "llp-registration": {
     "name": "LLP Registration",
     "slug": "llp-registration",
     "category": "Essentials",
     "tagline": "Limited liability, lighter compliance.",
-    "price": "Request quote",
+    "price": "₹5,999",
     "timeline": "12 days · + govt. fees",
     "govt": "+ govt. fees",
     "what": "Our team handles your LLP Registration from start to finish — verifying your documents, preparing the paperwork, and filing on the correct government portal, keeping you compliant and updated at every step.",

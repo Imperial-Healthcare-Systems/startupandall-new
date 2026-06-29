@@ -2,7 +2,7 @@
 // (The stamp-duty closures can't be JSON-serialised, so this module is the
 // authoritative source for calculator data + computation.)
 
-export type Entity = "pvt" | "opc" | "llp";
+export type Entity = "pvt" | "opc" | "llp" | "sec8";
 
 export interface CalcState {
   ent: Entity;
@@ -90,6 +90,7 @@ export const CALC_CFG: Record<Entity, { label: string; pro: number; proName: str
   pvt: { label: "Private Limited", pro: 6999, proName: "Private Limited Company", minPeople: 2, peopleLabel: "Directors", slug: "private-limited-company" },
   opc: { label: "OPC", pro: 5999, proName: "One Person Company (OPC)", minPeople: 1, peopleLabel: "Director", slug: "one-person-company-opc" },
   llp: { label: "LLP", pro: 5999, proName: "Limited Liability Partnership", minPeople: 2, peopleLabel: "Designated partners", slug: "limited-liability-partnership-llp" },
+  sec8: { label: "Section 8", pro: 6999, proName: "Section 8 Company", minPeople: 2, peopleLabel: "Directors", slug: "section-8-company-registration" },
 };
 
 /* MCA registration fee — Table B; waived up to ₹15 lakh authorised capital. */
@@ -98,10 +99,18 @@ export function calcMcaFee(c: number): number {
   return 2000 + 200 * Math.ceil((c - 1000000) / 10000);
 }
 
-export const CALC_DSC = 1299;
+export const CALC_DSC = 1299; // single Class-3 DSC (1 director)
+export const CALC_DSC_2 = 1999; // two directors (slab rate)
 export const CALC_PANTAN = 143;
-export const CALC_GSTADD = 1499;
+export const CALC_GSTADD = 1999;
 export const CALC_MSMEADD = 999;
+
+/** DSC professional-fee slab: ₹1,299 for one signature, ₹1,999 for two, then ₹700 each additional. */
+export function dscFee(n: number): number {
+  if (n <= 0) return 0;
+  if (n === 1) return CALC_DSC;
+  return CALC_DSC_2 + (n - 2) * 700;
+}
 
 export const inr = (n: number) => "₹" + Math.round(n).toLocaleString("en-IN");
 
@@ -120,11 +129,16 @@ export function calcCompute(s: CalcState): CalcResult {
   const cfg = CALC_CFG[s.ent];
   const rows: CalcRow[] = [];
   const people = Math.min(Math.max(cfg.minPeople, s.people), s.ent === "opc" ? 1 : 8);
-  const dscN = Math.max(0, people - Math.min(s.haveDsc, people));
-  const proFees = cfg.pro + dscN * CALC_DSC + (s.addGst ? CALC_GSTADD : 0) + (s.addMsme ? CALC_MSMEADD : 0);
+  const held = Math.min(s.haveDsc, people);
+  const dscN = Math.max(0, people - held);
+  // Class 3 DSC for all directors is included in the professional fee (not
+  // charged on top of the base). When the client already holds DSC(s), credit
+  // the value of the ones they provide.
+  const dscCredit = dscFee(people) - dscFee(dscN);
+  const proFees = cfg.pro - dscCredit + (s.addGst ? CALC_GSTADD : 0) + (s.addMsme ? CALC_MSMEADD : 0);
   const gst = Math.round(0.18 * proFees);
-  rows.push({ l: cfg.proName + " — professional fee", e: "Drafting, filing, advisor support, end-to-end", v: cfg.pro });
-  if (dscN > 0) rows.push({ l: "Digital Signatures × " + dscN, e: "Class 3 DSC, 2-year validity (" + inr(CALC_DSC) + " each)", v: dscN * CALC_DSC });
+  rows.push({ l: cfg.proName + " — professional fee", e: "Includes Class 3 DSC for " + people + " " + cfg.peopleLabel.toLowerCase() + " — drafting, filing & advisor support", v: cfg.pro });
+  if (dscCredit > 0) rows.push({ l: "DSC already held — credit", e: held + " of " + people + " " + cfg.peopleLabel.toLowerCase() + " provide their own", v: -dscCredit });
   if (s.addGst) rows.push({ l: "GST Registration (add-on)", e: "GSTIN with filing support", v: CALC_GSTADD });
   if (s.addMsme) rows.push({ l: "MSME / Udyam Registration (add-on)", e: "Udyam certificate", v: CALC_MSMEADD });
   rows.push({ l: "GST @ 18%", e: "On professional & DSC fees (govt. fees attract no GST)", v: gst });
@@ -146,7 +160,8 @@ export function calcCompute(s: CalcState): CalcResult {
     govt = (s.preName ? 200 : 0) + fillip + f3 + stamp + CALC_PANTAN;
   } else {
     const sd = (CALC_STATES.find((x) => x[0] === s.st) || CALC_STATES[0])[1](s.cap);
-    const stamp = Math.round(sd.f + sd.m + sd.a);
+    // Section 8 (non-profit) companies are exempt from stamp duty on MoA/AoA.
+    const stamp = s.ent === "sec8" ? 0 : Math.round(sd.f + sd.m + sd.a);
     rows.push(
       s.preName
         ? { l: "Name reservation (SPICe+ Part A)", e: "MCA fee — 2 name choices, reserved in advance", v: 1000, g: 1 }
@@ -158,7 +173,11 @@ export function calcCompute(s: CalcState): CalcResult {
         ? { l: "ROC / MCA registration fee", e: "MCA Table B — applies above ₹15 lakh authorised capital", v: mca, g: 1 }
         : { l: "ROC / MCA filing fee (SPICe+, MoA, AoA)", e: "Nil for authorised capital up to ₹15 lakh", v: 0, g: 1, free: 1 }
     );
-    rows.push({ l: "Stamp duty (form + MoA + AoA)", e: s.st + " · capital " + inr(s.cap), v: stamp, g: 1 });
+    rows.push(
+      s.ent === "sec8"
+        ? { l: "Stamp duty (form + MoA + AoA)", e: "Exempt for Section 8 (non-profit) companies", v: 0, g: 1, free: 1 }
+        : { l: "Stamp duty (form + MoA + AoA)", e: s.st + " · capital " + inr(s.cap), v: stamp, g: 1 }
+    );
     rows.push({ l: "PAN & TAN", e: "NSDL processing", v: CALC_PANTAN, g: 1 });
     rows.push({ l: "DIN for " + Math.min(people, 3) + " " + cfg.peopleLabel.toLowerCase(), e: "Allotted within SPICe+ — no extra fee (up to 3)", v: 0, g: 1, free: 1 });
     govt = (s.preName ? 1000 : 0) + calcMcaFee(s.cap) + stamp + CALC_PANTAN;

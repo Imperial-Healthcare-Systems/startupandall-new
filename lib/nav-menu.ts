@@ -136,7 +136,6 @@ export const NAV_MENU: NavMega[] = [
         services: [
           ["Reserve Unique Name (RUN)", "10 days"],
           ["RUN Extension", "10 days"],
-          ["Private Limited Company With Name Reservation (RUN)", "15 days"],
           ["Bank Account Opening", "7 days"],
         ],
       },
@@ -207,9 +206,7 @@ export const NAV_MENU: NavMega[] = [
         blurb: "GST registration, returns and amendments.",
         services: [
           ["GST Registration", "7 days"],
-          ["GSTR-1 Filing", "3 days"],
-          ["GSTR-3B Filing", "5 days"],
-          ["GSTR-9 Annual Return", "15 days"],
+          ["GST Filings", "3 days"],
           ["LUT (Letter of Undertaking)", "5 days"],
           ["GST Amendment", "10 days"],
         ],
@@ -290,8 +287,6 @@ export const NAV_MENU: NavMega[] = [
           ["EPFO Filings", "7 days"],
           ["ESIC Filings", "7 days"],
           ["Payroll Processing", "5 days"],
-          ["HR Services", "10 days"],
-          ["POSH Policy", "14 days"],
           ["PT Registration Service", "10 days"],
         ],
       },
@@ -309,9 +304,6 @@ export const NAV_MENU: NavMega[] = [
         services: [
           ["FSSAI License", "10 days"],
           ["FSSAI Compliance", "7 days"],
-          ["Ayush License", "7 days"],
-          ["Drug License", "10 days"],
-          ["Health Trade License", "10 days"],
         ],
       },
       {
@@ -321,11 +313,6 @@ export const NAV_MENU: NavMega[] = [
         blurb: "IEC, ICEGATE and export-body registrations.",
         services: [
           ["Import Export Code (IEC)", "7 days"],
-          ["ICEGATE Registration Service", "12 days"],
-          ["AD Code Linking with ICEGATE", "7 days"],
-          ["APEDA Registration", "15 days"],
-          ["Spices Board Registration", "8 days"],
-          ["DUNS", "7 days"],
         ],
       },
       {
@@ -338,8 +325,7 @@ export const NAV_MENU: NavMega[] = [
           ["ISO Audit Service", "7 days"],
           ["Legal Entity Identifier (LEI)", "10 days"],
           ["GS1 Barcode Registration", "10 days"],
-          ["ISSN Registration", "10 days"],
-          ["Legal Metrology Packaged Commodities", "10 days"],
+          ["Barcode Registration", "10 days"],
         ],
       },
       {
@@ -348,12 +334,9 @@ export const NAV_MENU: NavMega[] = [
         icon: I.store,
         blurb: "Trade, shop, pollution and RERA approvals.",
         services: [
-          ["Trade License Registration", "14 days"],
           ["Shops and Establishment Registration", "10 days"],
-          ["CTE (Consent to Establish)", "10 days"],
-          ["CTO (Consent to Operate)", "10 days"],
-          ["RERA Registration", "20 days"],
-          ["Central Labour License", "15 days"],
+          ["RERA Agent Registration", "15 days"],
+          ["RERA Promoter Registration", "20 days"],
         ],
       },
       {
@@ -362,11 +345,7 @@ export const NAV_MENU: NavMega[] = [
         icon: I.cpu,
         blurb: "STPI, Softex, GeM and credit-guarantee schemes.",
         services: [
-          ["STPI Registration", "10 days"],
-          ["STPI Filings", "10 days"],
-          ["Softex Registration", "60 days"],
           ["GeM Registration", "7 days"],
-          ["CGTMSE", "15 days"],
         ],
       },
       {
@@ -375,11 +354,10 @@ export const NAV_MENU: NavMega[] = [
         icon: I.factory,
         blurb: "MSME (Udyam) and professional-tax registration.",
         services: [
-          ["MSME Registration", "10 days"],
+          ["MSME / Udyam Registration", "10 days"],
           ["MSME Registration for Partnership", "7 days"],
           ["PT Registration Service", "10 days"],
           ["PT Filing", "5 days"],
-          ["Newspaper Publishing", "5 days"],
         ],
       },
     ],
@@ -409,7 +387,6 @@ export const NAV_MENU: NavMega[] = [
           ["Valuation Report", "15 days"],
           ["Projection Report", "10 days"],
           ["Net Worth Certificate", "7 days"],
-          ["Fund Utilization Plan", "10 days"],
           ["Financial and Legal Advisory", "30 days"],
         ],
       },
@@ -436,7 +413,6 @@ export const NAV_MENU: NavMega[] = [
           ["Agreement Notarization", "7 days"],
           ["Founder Agreement", "7 days"],
           ["Pledge Agreement Draft", "10 days"],
-          ["Civil Liability Insurance", "3 days"],
         ],
       },
     ],

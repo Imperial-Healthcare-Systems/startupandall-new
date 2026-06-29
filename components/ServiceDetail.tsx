@@ -95,7 +95,10 @@ const INCORP_TIERS = [
 export default function ServiceDetail({ service: d }: { service: Service }) {
   const nSteps = d.steps.length;
   // Show the incorporation packages only on the Private Limited Company page.
-  const showPackages = d.slug === "private-limited-company";
+  // Incorporation packages temporarily removed from the live site at client request;
+  // they will be reintroduced (with corrected pricing) in the next build.
+  // To restore, revert this to: d.slug === "private-limited-company"
+  const showPackages = false;
   return (
     <>
       <section className="sp-hero">
@@ -302,8 +305,14 @@ export default function ServiceDetail({ service: d }: { service: Service }) {
                 const p = PKG[t.slug];
                 return (
                   <div className="ipkg-save-col" key={t.slug}>
-                    <span className="ipkg-save-total">{p.alaCarte}</span>
-                    <span className="ipkg-save-pill">Save {p.save}</span>
+                    {p.save ? (
+                      <>
+                        <span className="ipkg-save-total">{p.alaCarte}</span>
+                        <span className="ipkg-save-pill">Save {p.save}</span>
+                      </>
+                    ) : (
+                      <span className="ipkg-save-total">—</span>
+                    )}
                   </div>
                 );
               })}

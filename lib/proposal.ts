@@ -38,6 +38,7 @@ const CALC_ENT_SLUG: Record<Entity, string> = {
   pvt: "private-limited-company",
   opc: "one-person-company-opc",
   llp: "limited-liability-partnership-llp",
+  sec8: "section-8-company-registration",
 };
 
 function docsForSlug(slug: string): string[] {
