@@ -99,10 +99,18 @@ export function calcMcaFee(c: number): number {
   return 2000 + 200 * Math.ceil((c - 1000000) / 10000);
 }
 
-export const CALC_DSC = 1299;
+export const CALC_DSC = 1299; // single Class-3 DSC (1 director)
+export const CALC_DSC_2 = 1999; // two directors (slab rate)
 export const CALC_PANTAN = 143;
-export const CALC_GSTADD = 1499;
+export const CALC_GSTADD = 1999;
 export const CALC_MSMEADD = 999;
+
+/** DSC professional-fee slab: ₹1,299 for one signature, ₹1,999 for two, then ₹700 each additional. */
+export function dscFee(n: number): number {
+  if (n <= 0) return 0;
+  if (n === 1) return CALC_DSC;
+  return CALC_DSC_2 + (n - 2) * 700;
+}
 
 export const inr = (n: number) => "₹" + Math.round(n).toLocaleString("en-IN");
 
@@ -121,11 +129,16 @@ export function calcCompute(s: CalcState): CalcResult {
   const cfg = CALC_CFG[s.ent];
   const rows: CalcRow[] = [];
   const people = Math.min(Math.max(cfg.minPeople, s.people), s.ent === "opc" ? 1 : 8);
-  const dscN = Math.max(0, people - Math.min(s.haveDsc, people));
-  const proFees = cfg.pro + dscN * CALC_DSC + (s.addGst ? CALC_GSTADD : 0) + (s.addMsme ? CALC_MSMEADD : 0);
+  const held = Math.min(s.haveDsc, people);
+  const dscN = Math.max(0, people - held);
+  // Class 3 DSC for all directors is included in the professional fee (not
+  // charged on top of the base). When the client already holds DSC(s), credit
+  // the value of the ones they provide.
+  const dscCredit = dscFee(people) - dscFee(dscN);
+  const proFees = cfg.pro - dscCredit + (s.addGst ? CALC_GSTADD : 0) + (s.addMsme ? CALC_MSMEADD : 0);
   const gst = Math.round(0.18 * proFees);
-  rows.push({ l: cfg.proName + " — professional fee", e: "Drafting, filing, advisor support, end-to-end", v: cfg.pro });
-  if (dscN > 0) rows.push({ l: "Digital Signatures × " + dscN, e: "Class 3 DSC, 2-year validity (" + inr(CALC_DSC) + " each)", v: dscN * CALC_DSC });
+  rows.push({ l: cfg.proName + " — professional fee", e: "Includes Class 3 DSC for " + people + " " + cfg.peopleLabel.toLowerCase() + " — drafting, filing & advisor support", v: cfg.pro });
+  if (dscCredit > 0) rows.push({ l: "DSC already held — credit", e: held + " of " + people + " " + cfg.peopleLabel.toLowerCase() + " provide their own", v: -dscCredit });
   if (s.addGst) rows.push({ l: "GST Registration (add-on)", e: "GSTIN with filing support", v: CALC_GSTADD });
   if (s.addMsme) rows.push({ l: "MSME / Udyam Registration (add-on)", e: "Udyam certificate", v: CALC_MSMEADD });
   rows.push({ l: "GST @ 18%", e: "On professional & DSC fees (govt. fees attract no GST)", v: gst });

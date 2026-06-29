@@ -158,7 +158,7 @@ export default function CostCalculator({ initialEntity }: { initialEntity?: Enti
               <b>GST Registration</b>
               <span>Recommended if you’ll invoice from day one</span>
             </span>
-            <span className="ca-p">+ ₹1,499</span>
+            <span className="ca-p">+ ₹1,999</span>
           </div>
           <div className={"calc-add" + (s.addMsme ? " on" : "")} onClick={() => set({ addMsme: !s.addMsme })}>
             <span className="ca-tick">{check}</span>
