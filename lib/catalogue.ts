@@ -8,20 +8,12 @@ export const CATALOGUE = [
         "10 days"
       ],
       [
-        "Private Limited Company With Name Reservation (RUN)",
-        "15 days"
-      ],
-      [
         "Limited Liability Partnership (LLP)",
         "10 days"
       ],
       [
         "One Person Company (OPC)",
         "10 days"
-      ],
-      [
-        "One Person Company (OPC) with Name Reservation",
-        "15 days"
       ],
       [
         "Partnership Registration",
@@ -134,16 +126,8 @@ export const CATALOGUE = [
         "7 days"
       ],
       [
-        "GSTR-1 Filing",
+        "GST Filings",
         "3 days"
-      ],
-      [
-        "GSTR-3B Filing",
-        "5 days"
-      ],
-      [
-        "GSTR-9 Annual Return",
-        "15 days"
       ],
       [
         "LUT (Letter of Undertaking)",
@@ -522,52 +506,12 @@ export const CATALOGUE = [
         "7 days"
       ],
       [
-        "ICEGATE Registration Service",
-        "12 days"
-      ],
-      [
-        "AD Code Linking with ICEGATE",
-        "7 days"
-      ],
-      [
-        "APEDA Registration",
+        "RERA Agent Registration",
         "15 days"
       ],
       [
-        "Ayush License",
-        "7 days"
-      ],
-      [
-        "Drug License",
-        "10 days"
-      ],
-      [
-        "Health Trade License",
-        "10 days"
-      ],
-      [
-        "Trade License Registration",
-        "14 days"
-      ],
-      [
-        "Central Labour License",
-        "15 days"
-      ],
-      [
-        "CTE (Consent to Establish)",
-        "10 days"
-      ],
-      [
-        "CTO (Consent to Operate)",
-        "10 days"
-      ],
-      [
-        "RERA Registration",
+        "RERA Promoter Registration",
         "20 days"
-      ],
-      [
-        "Legal Metrology Packaged Commodities",
-        "10 days"
       ],
       [
         "Legal Entity Identifier (LEI)",
@@ -578,43 +522,15 @@ export const CATALOGUE = [
         "10 days"
       ],
       [
-        "ISSN Registration",
+        "Barcode Registration",
         "10 days"
-      ],
-      [
-        "DUNS",
-        "7 days"
       ],
       [
         "GeM Registration",
         "7 days"
       ],
       [
-        "CGTMSE",
-        "15 days"
-      ],
-      [
-        "Spices Board Registration",
-        "8 days"
-      ],
-      [
-        "STPI Registration",
-        "10 days"
-      ],
-      [
-        "STPI Filings",
-        "10 days"
-      ],
-      [
-        "Softex Registration",
-        "60 days"
-      ],
-      [
-        "Softex Filings",
-        "30 days"
-      ],
-      [
-        "MSME Registration",
+        "MSME / Udyam Registration",
         "10 days"
       ],
       [
@@ -636,10 +552,6 @@ export const CATALOGUE = [
       [
         "Shops and Establishment Registration",
         "10 days"
-      ],
-      [
-        "Newspaper Publishing",
-        "5 days"
       ]
     ]
   },
@@ -658,18 +570,6 @@ export const CATALOGUE = [
       [
         "Payroll Processing",
         "5 days"
-      ],
-      [
-        "HR Services",
-        "10 days"
-      ],
-      [
-        "POSH Policy",
-        "14 days"
-      ],
-      [
-        "Dedicated Telecalling Support Team",
-        "7 days"
       ]
     ]
   },
@@ -700,10 +600,6 @@ export const CATALOGUE = [
       [
         "Darpan Filing",
         "7 days"
-      ],
-      [
-        "Fund Utilization Plan",
-        "10 days"
       ]
     ]
   },
@@ -766,28 +662,6 @@ export const CATALOGUE = [
       [
         "Pledge Agreement Draft",
         "10 days"
-      ],
-      [
-        "Civil Liability Insurance",
-        "3 days"
-      ]
-    ]
-  },
-  {
-    "category": "Virtual Office & Other",
-    "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z\"/><circle cx=\"12\" cy=\"10\" r=\"3\"/></svg>",
-    "services": [
-      [
-        "Virtual Office (With Incorporation)",
-        "2 days"
-      ],
-      [
-        "Virtual Office (Without Incorporation)",
-        "7 days"
-      ],
-      [
-        "Others (rare service / govt fee)",
-        "10 days"
       ]
     ]
   }
@@ -841,4 +715,4 @@ export const ICONS = {
   "arrowIcon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/><polyline points=\"12 5 19 12 12 19\"/></svg>"
 } as const;
 
-export const SERVICE_COUNT = 183;
+export const SERVICE_COUNT = 153;

@@ -11,7 +11,7 @@ import SiteChrome from "@/components/SiteChrome";
 export const metadata: Metadata = {
   title: "Startup And All — Start, protect & run your business",
   description:
-    "Company registration, GST, trademarks and compliance in India — handled by one dedicated advisor with clear, upfront pricing. 180+ services under one roof.",
+    "Company registration, GST, trademarks and compliance in India — handled by one dedicated advisor with clear, upfront pricing. 150+ services under one roof.",
 };
 
 export default function RootLayout({

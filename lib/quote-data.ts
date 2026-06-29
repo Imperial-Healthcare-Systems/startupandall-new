@@ -130,7 +130,7 @@ export const PKG_QUOTES = {
     "note": "Incorporation plus GST & MSME registration — invoice-ready from day one. DSC & government fees at actuals.",
     "scope": "10 deliverables",
     "alaCarte": "₹27,500",
-    "save": "₹8,500",
+    "save": "₹8,501",
     "components": [
       { "label": "Incorporation & SPICe+ filing", "amount": 12003 },
       { "label": "Digital signatures — 2 directors", "amount": 3998 },
@@ -167,7 +167,7 @@ export const PKG_QUOTES = {
     "note": "Everything in Professional plus all mandatory first-year MCA filings (INC-20A, ADT-1, AOC-4, MGT-7A, DIR-3 KYC). DSC & government fees at actuals.",
     "scope": "14 deliverables",
     "alaCarte": "₹48,000",
-    "save": "₹13,000",
+    "save": "₹13,001",
     "components": [
       { "label": "Incorporation & SPICe+ filing", "amount": 12000 },
       { "label": "Digital signatures — 2 directors", "amount": 3998 },
@@ -208,5 +208,6 @@ export const QUOTE_ENTITY = {
   "private-limited-company": "pvt",
   "one-person-company-opc": "opc",
   "limited-liability-partnership-llp": "llp",
-  "llp-registration": "llp"
+  "llp-registration": "llp",
+  "section-8-company-registration": "sec8"
 } as const;

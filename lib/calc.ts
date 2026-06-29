@@ -2,7 +2,7 @@
 // (The stamp-duty closures can't be JSON-serialised, so this module is the
 // authoritative source for calculator data + computation.)
 
-export type Entity = "pvt" | "opc" | "llp";
+export type Entity = "pvt" | "opc" | "llp" | "sec8";
 
 export interface CalcState {
   ent: Entity;
@@ -90,6 +90,7 @@ export const CALC_CFG: Record<Entity, { label: string; pro: number; proName: str
   pvt: { label: "Private Limited", pro: 6999, proName: "Private Limited Company", minPeople: 2, peopleLabel: "Directors", slug: "private-limited-company" },
   opc: { label: "OPC", pro: 5999, proName: "One Person Company (OPC)", minPeople: 1, peopleLabel: "Director", slug: "one-person-company-opc" },
   llp: { label: "LLP", pro: 5999, proName: "Limited Liability Partnership", minPeople: 2, peopleLabel: "Designated partners", slug: "limited-liability-partnership-llp" },
+  sec8: { label: "Section 8", pro: 6999, proName: "Section 8 Company", minPeople: 2, peopleLabel: "Directors", slug: "section-8-company-registration" },
 };
 
 /* MCA registration fee — Table B; waived up to ₹15 lakh authorised capital. */
@@ -146,7 +147,8 @@ export function calcCompute(s: CalcState): CalcResult {
     govt = (s.preName ? 200 : 0) + fillip + f3 + stamp + CALC_PANTAN;
   } else {
     const sd = (CALC_STATES.find((x) => x[0] === s.st) || CALC_STATES[0])[1](s.cap);
-    const stamp = Math.round(sd.f + sd.m + sd.a);
+    // Section 8 (non-profit) companies are exempt from stamp duty on MoA/AoA.
+    const stamp = s.ent === "sec8" ? 0 : Math.round(sd.f + sd.m + sd.a);
     rows.push(
       s.preName
         ? { l: "Name reservation (SPICe+ Part A)", e: "MCA fee — 2 name choices, reserved in advance", v: 1000, g: 1 }
@@ -158,7 +160,11 @@ export function calcCompute(s: CalcState): CalcResult {
         ? { l: "ROC / MCA registration fee", e: "MCA Table B — applies above ₹15 lakh authorised capital", v: mca, g: 1 }
         : { l: "ROC / MCA filing fee (SPICe+, MoA, AoA)", e: "Nil for authorised capital up to ₹15 lakh", v: 0, g: 1, free: 1 }
     );
-    rows.push({ l: "Stamp duty (form + MoA + AoA)", e: s.st + " · capital " + inr(s.cap), v: stamp, g: 1 });
+    rows.push(
+      s.ent === "sec8"
+        ? { l: "Stamp duty (form + MoA + AoA)", e: "Exempt for Section 8 (non-profit) companies", v: 0, g: 1, free: 1 }
+        : { l: "Stamp duty (form + MoA + AoA)", e: s.st + " · capital " + inr(s.cap), v: stamp, g: 1 }
+    );
     rows.push({ l: "PAN & TAN", e: "NSDL processing", v: CALC_PANTAN, g: 1 });
     rows.push({ l: "DIN for " + Math.min(people, 3) + " " + cfg.peopleLabel.toLowerCase(), e: "Allotted within SPICe+ — no extra fee (up to 3)", v: 0, g: 1, free: 1 });
     govt = (s.preName ? 1000 : 0) + calcMcaFee(s.cap) + stamp + CALC_PANTAN;

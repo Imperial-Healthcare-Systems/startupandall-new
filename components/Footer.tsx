@@ -39,7 +39,7 @@ const ourServices = [
   { href: "/service/private-limited-company", label: "Private Limited Company", icon: ic.building },
   { href: "/service/gst-registration", label: "GST Registration", icon: ic.doc },
   { href: "/service/trademark-registration", label: "Trademark Registration", icon: ic.shield },
-  { href: "/service/msme-registration", label: "MSME Registration", icon: ic.badge },
+  { href: "/service/msme-udyam-registration", label: "MSME / Udyam Registration", icon: ic.badge },
   { href: "/service/income-tax-return-filing", label: "Income Tax Return", icon: ic.calc },
   { href: "/service/import-export-code-iec", label: "Import Export Code", icon: ic.globe },
 ];
