@@ -59,29 +59,29 @@ function renderHeroBadges(plats: Record<string, Platform>) {
 function renderReviews(plats: Record<string, Platform>) {
   const platsEl = document.getElementById("rv-plats");
   const gridEl = document.getElementById("rv-grid");
-  const ctaEl = document.getElementById("rv-cta");
   if (!gridEl) return;
 
   if (platsEl) {
+    // Single pair of score chips, styled to match the static mockup (.rv-plat pill + .b badge).
     platsEl.innerHTML = Object.keys(plats)
       .map((k) => {
         const p = plats[k];
+        const cls = k === "google" ? "g" : k === "justdial" ? "j" : k.slice(0, 1);
         return (
           '<a class="rv-plat" href="' + p.url + '" target="_blank" rel="noopener noreferrer">' +
-          '<span class="rv-plat-ic">' + rvLogo(k) + "</span>" +
-          '<span class="rv-plat-meta">' +
-          '<span class="rv-plat-score"><b>' + p.rating + "</b>" + rvStars(parseFloat(p.rating)) + "</span>" +
-          '<span class="rv-plat-sub">Rated on <b>' + p.name + "</b>" + (p.count ? " · " + p.count + " reviews" : "") + "</span>" +
-          "</span></a>"
+          '<span class="b ' + cls + '">' + rvLogo(k) + "</span>" +
+          "<b>" + p.rating + ' <span class="star">★</span></b>' +
+          "<span>" + (p.count ? p.count + " " : "") + p.name + " reviews</span>" +
+          "</a>"
         );
       })
       .join("");
   }
 
-  gridEl.innerHTML = REVIEWS.map((r) => {
+  const cards = REVIEWS.map((r) => {
     const pname = (plats[r.platform] || ({} as Platform)).name || "";
     return (
-      '<article class="rv-card reveal">' +
+      '<article class="rv-card">' +
       '<div class="rv-card-top"><span class="rv-badge" title="' + pname + '">' + rvLogo(r.platform) + "</span>" +
       '<span class="rv-quote"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.5 6C5 6 3 8 3 10.5S5 15 7.5 15c0 2-1.3 3.2-3 3.8.4.7.8 1.2.8 1.2 2.8-.9 5.2-3.2 5.2-7V10.5C10.5 8 9.9 6 7.5 6zm9 0C14 6 12 8 12 10.5S14 15 16.5 15c0 2-1.3 3.2-3 3.8.4.7.8 1.2.8 1.2 2.8-.9 5.2-3.2 5.2-7V10.5C19.5 8 18.9 6 16.5 6z"/></svg></span></div>' +
       rvStars(r.rating) +
@@ -93,19 +93,10 @@ function renderReviews(plats: Record<string, Platform>) {
     );
   }).join("");
 
-  if (ctaEl) {
-    const arrow =
-      '<span class="rv-btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>';
-    ctaEl.innerHTML = Object.keys(plats)
-      .map((k) => {
-        const p = plats[k];
-        return (
-          '<a class="rv-btn" href="' + p.url + '" target="_blank" rel="noopener noreferrer">' +
-          '<span class="rv-btn-logo">' + rvLogo(k) + "</span>View all " + p.name + " reviews" + arrow + "</a>"
-        );
-      })
-      .join("");
-  }
+  // Right → left auto-scrolling carousel: the card set is duplicated so the
+  // marquee (translateX 0 → -50%) loops seamlessly; the copy is hidden from AT.
+  gridEl.innerHTML =
+    '<div class="rv-track">' + cards + '<span class="rv-dupe" aria-hidden="true">' + cards + "</span></div>";
 }
 
 /** Drives the home page's static markup: hero canvas + injected reviews/badges. */
