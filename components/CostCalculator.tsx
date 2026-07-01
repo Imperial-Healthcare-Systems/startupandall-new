@@ -17,12 +17,6 @@ import LeadGate, { LEAD_KEY } from "./LeadGate";
 import ProposalGenerator from "./ProposalGenerator";
 import { calcSnapshot, type Lead } from "@/lib/proposal";
 
-const check = (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" width="13" height="13">
-    <polyline points="20 6 9 17 4 12" />
-  </svg>
-);
-
 export default function CostCalculator({ initialEntity }: { initialEntity?: Entity } = {}) {
   const [s, setS] = useState<CalcState>(() => {
     const base = initialCalcState();
@@ -75,7 +69,7 @@ export default function CostCalculator({ initialEntity }: { initialEntity?: Enti
   );
 
   return (
-    <>
+    <div className="calc-page">
     <div className={"calc-grid" + (lead ? "" : " calc-locked")}>
       <div className="calc-card reveal in">
         <div className="calc-f">
@@ -108,6 +102,13 @@ export default function CostCalculator({ initialEntity }: { initialEntity?: Enti
               </option>
             ))}
           </select>
+          <div className="calc-chips">
+            {([[100000, "₹1L"], [500000, "₹5L"], [1000000, "₹10L"]] as [number, string][]).map(([v, lbl]) => (
+              <button key={v} className={cap === v ? "on" : ""} onClick={() => set({ cap: v })}>
+                {lbl}
+              </button>
+            ))}
+          </div>
           {s.ent !== "llp" && (
             <p className="calc-hint">
               MCA registration fee is NIL up to ₹15 lakh; above that, statutory Table-B slab fees apply automatically. Tip: most founders start at ₹15 lakh or below and increase capital later.
@@ -118,9 +119,11 @@ export default function CostCalculator({ initialEntity }: { initialEntity?: Enti
         <div className="calc-f">
           <label>4 · {cfg.peopleLabel}</label>
           <div className="calc-step">
-            <button onClick={() => set({ people: Math.max(cfg.minPeople, r.people - 1) })}>−</button>
-            <b>{r.people}</b>
-            <button onClick={() => set({ people: Math.min(maxP, r.people + 1) })}>+</button>
+            <div className="stepper">
+              <button onClick={() => set({ people: Math.max(cfg.minPeople, r.people - 1) })}>−</button>
+              <b>{r.people}</b>
+              <button onClick={() => set({ people: Math.min(maxP, r.people + 1) })}>+</button>
+            </div>
             {s.ent === "opc" && <span className="calc-hint" style={{ margin: 0 }}>1 director + 1 nominee (no DSC needed for nominee)</span>}
           </div>
         </div>
@@ -128,9 +131,11 @@ export default function CostCalculator({ initialEntity }: { initialEntity?: Enti
         <div className="calc-f">
           <label>5 · Already hold a valid DSC?</label>
           <div className="calc-step">
-            <button onClick={() => set({ haveDsc: Math.max(0, Math.min(s.haveDsc, r.people) - 1) })}>−</button>
-            <b>{Math.min(s.haveDsc, r.people)}</b>
-            <button onClick={() => set({ haveDsc: Math.min(r.people, Math.min(s.haveDsc, r.people) + 1) })}>+</button>
+            <div className="stepper">
+              <button onClick={() => set({ haveDsc: Math.max(0, Math.min(s.haveDsc, r.people) - 1) })}>−</button>
+              <b>{Math.min(s.haveDsc, r.people)}</b>
+              <button onClick={() => set({ haveDsc: Math.min(r.people, Math.min(s.haveDsc, r.people) + 1) })}>+</button>
+            </div>
             <span className="calc-hint" style={{ margin: 0 }}>people who already have one — we’ll skip their DSC cost</span>
           </div>
         </div>
@@ -152,21 +157,19 @@ export default function CostCalculator({ initialEntity }: { initialEntity?: Enti
 
         <div className="calc-f">
           <label>7 · Popular add-ons (optional)</label>
-          <div className={"calc-add" + (s.addGst ? " on" : "")} onClick={() => set({ addGst: !s.addGst })}>
-            <span className="ca-tick">{check}</span>
-            <span className="ca-l">
+          <div className={"calc-toggle" + (s.addGst ? " on" : "")} onClick={() => set({ addGst: !s.addGst })}>
+            <span className="ct-txt">
               <b>GST Registration</b>
-              <span>Recommended if you’ll invoice from day one</span>
+              <span>Recommended if you’ll invoice from day one — <em>+ ₹1,999</em></span>
             </span>
-            <span className="ca-p">+ ₹1,999</span>
+            <span className="ct-switch" />
           </div>
-          <div className={"calc-add" + (s.addMsme ? " on" : "")} onClick={() => set({ addMsme: !s.addMsme })}>
-            <span className="ca-tick">{check}</span>
-            <span className="ca-l">
+          <div className={"calc-toggle" + (s.addMsme ? " on" : "")} onClick={() => set({ addMsme: !s.addMsme })}>
+            <span className="ct-txt">
               <b>MSME / Udyam Registration</b>
-              <span>Unlocks MSME benefits & schemes</span>
+              <span>Unlocks MSME benefits & schemes — <em>+ ₹999</em></span>
             </span>
-            <span className="ca-p">+ ₹999</span>
+            <span className="ct-switch" />
           </div>
         </div>
 
@@ -236,6 +239,6 @@ export default function CostCalculator({ initialEntity }: { initialEntity?: Enti
       </div>
     </div>
     {!lead && <LeadGate entityLabel={cfg.label} onUnlock={setLead} />}
-    </>
+    </div>
   );
 }

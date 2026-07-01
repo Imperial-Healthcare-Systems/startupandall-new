@@ -54,7 +54,7 @@ export default function Footer() {
         <div className="ft-grid">
           <div className="ft-brand">
             <span className="ft-logo">
-              <Image src="/img/f4fe665155.png" alt="StartupAndAll — start, protect and run your business" width={170} height={40} />
+              <Image src="/img/f4fe665155.png" alt="StartupAndAll — start, protect and run your business" width={428} height={220} />
             </span>
             <p className="ft-tag">Start, protect, and run your business &mdash; without the paperwork headache.</p>
             <span className="ft-div" aria-hidden="true" />

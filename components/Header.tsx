@@ -75,7 +75,7 @@ export default function Header() {
       <header id="hdr">
         <div className="wrap hdr-in">
           <Link href="/" className="hdr-logo" aria-label="StartupAndAll home">
-            <Image src="/img/f4fe665155.png" alt="StartupAndAll — start, protect and run your business" width={180} height={42} priority />
+            <Image src="/img/f4fe665155.png" alt="StartupAndAll — start, protect and run your business" width={428} height={220} priority />
           </Link>
           <nav className="hdr-nav">
             {NAV_MENU.map((group) => {

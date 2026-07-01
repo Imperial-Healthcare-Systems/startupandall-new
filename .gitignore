@@ -6,3 +6,6 @@
 *.tsbuildinfo
 next-env.d.ts
 .DS_Store
+
+# local design mockups — reference only, never tracked
+/design/
