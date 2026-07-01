@@ -1238,6 +1238,80 @@ footer{background:linear-gradient(180deg,#102544,#0B1A33);padding:0 0 28px}
 }
 
 
+/* ===== COST CALCULATOR RESKIN (scoped to .calc-page) =====
+   Reskins ONLY the /cost-calculator page to the mockup. Every selector is
+   prefixed with `.calc-page` so it cannot leak to QuotePage / home / catalogue,
+   which share the bare calc- and cr- classes plus calc-promo. Pricing markup and
+   the engine are untouched; this is presentation only. Decision: dark summary
+   panel with the embedded proposal generator kept on a light card. */
+.calc-page .calc-grid{grid-template-columns:1.25fr 1fr;gap:26px}
+.calc-page .calc-card{border-radius:22px;padding:28px;box-shadow:var(--shadow-sm)}
+
+/* — left form card — */
+.calc-page .calc-f{margin-bottom:22px}
+.calc-page .calc-f:last-child{margin-bottom:0}
+.calc-page .calc-f>label{font-family:var(--sans);font-size:13px;font-weight:700;text-transform:none;letter-spacing:0;color:var(--ink);margin-bottom:10px}
+.calc-page .calc-seg{display:flex;gap:8px;flex-wrap:wrap}
+.calc-page .calc-seg button{flex:1;min-width:92px;font-size:13px;font-weight:600;padding:11px 8px;border:1.5px solid var(--line);border-radius:11px;background:#fff;color:var(--body);transition:all .2s}
+.calc-page .calc-seg button:hover{border-color:var(--blue-soft);background:var(--blue-tint)}
+.calc-page .calc-seg button.on{border-color:var(--blue);background:var(--blue-soft);color:var(--blue)}
+.calc-page .calc-sel{background:var(--bg-alt);border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;font-size:14.5px}
+.calc-page .calc-sel:focus{outline:none;border-color:var(--blue);background:#fff}
+.calc-page .calc-chips{display:flex;gap:8px;margin-top:8px}
+.calc-page .calc-chips button{font-family:inherit;font-size:12px;font-weight:600;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--muted);cursor:pointer;transition:.2s}
+.calc-page .calc-chips button:hover{border-color:var(--blue);color:var(--blue)}
+.calc-page .calc-chips button.on{border-color:var(--blue);background:var(--blue-soft);color:var(--blue)}
+.calc-page .calc-step{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.calc-page .stepper{display:inline-flex;align-items:stretch;border:1.5px solid var(--line);border-radius:11px;overflow:hidden;flex:none}
+.calc-page .stepper button{width:42px;height:42px;font-size:20px;background:var(--bg-alt);border:none;color:var(--ink);cursor:pointer;transition:.15s}
+.calc-page .stepper button:hover{background:var(--blue-soft);color:var(--blue)}
+.calc-page .stepper b{min-width:54px;text-align:center;font-size:15px;font-weight:700;color:var(--ink);background:#fff;display:flex;align-items:center;justify-content:center}
+.calc-page .calc-step .calc-hint{flex:1;min-width:150px}
+.calc-page .calc-hint{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+.calc-page .calc-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px;border:1.5px solid var(--line);border-radius:12px;cursor:pointer;margin-bottom:10px;transition:all .2s}
+.calc-page .calc-toggle:last-child{margin-bottom:0}
+.calc-page .calc-toggle:hover{border-color:var(--blue-soft)}
+.calc-page .calc-toggle.on{border-color:var(--blue);background:var(--blue-tint)}
+.calc-page .ct-txt{display:block;min-width:0}
+.calc-page .ct-txt b{display:block;font-size:14px;color:var(--ink)}
+.calc-page .ct-txt span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+.calc-page .ct-txt em{font-style:normal;font-weight:600;color:var(--ink)}
+.calc-page .ct-switch{width:42px;height:24px;border-radius:999px;background:var(--line);position:relative;flex:none;transition:background .2s}
+.calc-page .calc-toggle.on .ct-switch{background:var(--blue)}
+.calc-page .ct-switch::after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:#fff;top:3px;left:3px;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.calc-page .calc-toggle.on .ct-switch::after{transform:translateX(18px)}
+
+/* — right price-summary panel: solid dark card (mockup) — */
+.calc-page .calc-res .calc-card{background:linear-gradient(165deg,#10233f,#0B1A33);border:none;box-shadow:none;padding:0;position:relative;overflow:hidden;border-radius:22px}
+.calc-page .calc-res .calc-card::before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;right:-140px;top:-160px;background:radial-gradient(circle,rgba(29,95,224,.4),transparent 60%);pointer-events:none}
+.calc-page .cr-head{position:relative;background:transparent;padding:26px 26px 0}
+.calc-page .cr-head .eyebrow2{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9db8ee}
+.calc-page .cr-total{color:#fff;font-size:30px;font-weight:800;letter-spacing:-.02em;margin-top:8px}
+.calc-page .cr-total small{color:#aebbd4;font-size:14px;font-weight:500}
+.calc-page .cr-body{position:relative;padding:18px 26px 26px}
+.calc-page .cr-row{border-bottom:1px solid rgba(255,255,255,.12)}
+.calc-page .cr-row span{color:#c9d6ea}
+.calc-page .cr-row em{color:#8294b4}
+.calc-page .cr-row b{color:#fff}
+.calc-page .cr-row.free b{color:#7fe0a8}
+.calc-page .cr-sub{color:#aebbd4;font-size:13px}
+.calc-page .cr-sub span:last-child{color:#e4ecf8;font-weight:600}
+.calc-page .cr-grand{color:#fff;border-top:1px solid rgba(255,255,255,.16);margin-top:8px;font-size:15px;font-weight:700}
+.calc-page .cr-grand span:last-child{font-size:22px;font-weight:800;letter-spacing:-.01em}
+.calc-page .cr-note{color:#8294b4;border-top-color:rgba(255,255,255,.14)}
+
+/* — embedded proposal generator: muted dark-blue panel raised off the result card — */
+.calc-page #prop-root{background:#15294c;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:8px 16px 12px;margin-top:16px;color:#c9d6ea}
+.calc-page #prop-root .prop-box{margin-top:0;border:none;padding:0}
+.calc-page #prop-root .prop-mini{color:#aebbd4}
+.calc-page #prop-root .prop-mini b{color:#eaf1fb}
+
+@media(max-width:900px){
+  .calc-page .calc-grid{grid-template-columns:1fr}
+  .calc-page .calc-res{position:static}
+}
+
+
 /* ===== PROPOSAL FLOW ===== */
 .prop-box{margin-top:14px;border:1.5px solid var(--line);border-radius:14px;padding:16px}
 .prop-box h4{font-size:15px;color:var(--ink);margin-bottom:10px}
