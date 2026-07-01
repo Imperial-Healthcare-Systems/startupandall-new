@@ -1300,8 +1300,8 @@ footer{background:linear-gradient(180deg,#102544,#0B1A33);padding:0 0 28px}
 .calc-page .cr-grand span:last-child{font-size:22px;font-weight:800;letter-spacing:-.01em}
 .calc-page .cr-note{color:#8294b4;border-top-color:rgba(255,255,255,.14)}
 
-/* — embedded proposal generator: muted dark-blue panel raised off the result card — */
-.calc-page #prop-root{background:#15294c;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:8px 16px 12px;margin-top:16px;color:#c9d6ea}
+/* — embedded proposal generator: sits directly on the dark result card (no box) — */
+.calc-page #prop-root{background:transparent;border:none;padding:0;margin-top:0;color:#c9d6ea}
 .calc-page #prop-root .prop-box{margin-top:0;border:none;padding:0}
 .calc-page #prop-root .prop-mini{color:#aebbd4}
 .calc-page #prop-root .prop-mini b{color:#eaf1fb}
