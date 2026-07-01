@@ -924,7 +924,7 @@ footer{background:linear-gradient(180deg,#102544,#0B1A33);padding:0 0 28px}
 
 /* ============================================================ FIXES: standalone buttons, dark-CTA card, value-card alignment ===== */
 /* content uses .btn-primary / .btn-ghost WITHOUT base .btn — give them full button shape + cap the icon size */
-.btn-primary,.btn-ghost,.btn-accent,.btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:15px;line-height:1;border-radius:999px;padding:13px 22px;cursor:pointer;border:1.5px solid transparent;white-space:nowrap;text-align:center;transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease}
+.btn-primary,.btn-ghost,.btn-accent,.btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;font-weight:600;font-size:15px;line-height:1;border-radius:999px;padding:13px 22px;cursor:pointer;border:1.5px solid transparent;white-space:nowrap;text-align:center;transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease}
 .btn-primary svg,.btn-ghost svg,.btn-accent svg,.btn-secondary svg,.btn-outline svg{width:18px;height:18px;flex:none}
 /* ghost is LIGHT by default; only white on dark surfaces (was globally overridden to white before) */
 .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
@@ -1305,6 +1305,10 @@ footer{background:linear-gradient(180deg,#102544,#0B1A33);padding:0 0 28px}
 .calc-page #prop-root .prop-box{margin-top:0;border:none;padding:0}
 .calc-page #prop-root .prop-mini{color:#aebbd4}
 .calc-page #prop-root .prop-mini b{color:#eaf1fb}
+/* success state: heading must read on the dark card (was dark ink → invisible, left the tick floating) */
+.calc-page #prop-root .prop-done{margin-top:4px}
+.calc-page #prop-root .prop-box h4{color:#eaf1fb}
+.calc-page #prop-root .prop-tick{margin-bottom:12px}
 
 @media(max-width:900px){
   .calc-page .calc-grid{grid-template-columns:1fr}
