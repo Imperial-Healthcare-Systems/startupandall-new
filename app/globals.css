@@ -665,11 +665,6 @@ footer{background:linear-gradient(180deg,#102544,#0B1A33);padding:0 0 28px}
 .btn>*{position:relative;z-index:1}
 .btn-shimmer::before{background:linear-gradient(110deg,transparent,rgba(255,255,255,.6),transparent);width:66%;animation-duration:3.4s}
 @keyframes btnShine{0%,100%{transform:skewX(-20deg) translateX(-280%)}55%{transform:skewX(-20deg) translateX(360%)}}
-/* ===== hybrid section-snap scroll ===== */
-@media(min-width:1025px) and (prefers-reduced-motion:no-preference){
-  html{scroll-snap-type:y proximity}
-  .hero,section,footer{scroll-snap-align:start;scroll-margin-top:40px}
-}
 @media(prefers-reduced-motion:reduce){.btn::before{animation:none}}
 
 /* ============================================================ ITERATION 7 ===== */
